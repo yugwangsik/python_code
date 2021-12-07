@@ -76,14 +76,14 @@ def csv_to_df_merge(_flist, fnum=None): #csv 파일을 하나의 dataframe 으�
         cnt += 1
         printProgressBar(cnt, len(_flist))
         _csvdf = pd.read_csv(file, skiprows = 3, header = None) 
-        allData.append(_csvdf) # 리스트에 추가 
-        #_dataframe.append(_csvdf)
+        #allData.append(_csvdf) # 리스트에 추가 
+        test_dataframe = _dataframe.append(_csvdf)
         del [[_csvdf]]
         gc.collect()
     
-    _dataframe = pd.concat(allData, axis=0, ignore_index=True)
+    #_dataframe = pd.concat(allData, axis=0, ignore_index=True)
     print (cnt, "개의 파일을 처리했습니다.. ")
-    return _dataframe
+    return test_dataframe
 
 def df_to_csv(_d, _h=None):
 
