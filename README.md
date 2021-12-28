@@ -1,4 +1,4 @@
-## git 다운로드
+## Git 다운로드
   ```:~ $git clone https://github.com/yugwangsik/python_code.git```
 
 
@@ -21,6 +21,6 @@
   - 저장된 리스트에서 csv파일을 하나씩 dataframe 형태로 읽어와서 리스트에 저장한다.
   - dataframe형태로 저장된 리스트를 dataframe으로 다시 합친다.
 
-## result
+## Result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
     <img src="/img/test_result.PNG" width="400px" height="1000px"></img>
