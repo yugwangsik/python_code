@@ -5,7 +5,7 @@
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.
 
 ## 실행 및 날짜 입력
-  - csv to dataframe.py를 실행 시킨 뒤 시작날짜 종ㄴ료날짜를 입력한다.
+  - csv to dataframe.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
   - 날짜를 입력할 때 형식은 yyyy-mm-dd hh:mm:ss 형식으로 입력한다.
 
 ## 데이터 read 및 변환
