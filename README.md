@@ -1,5 +1,5 @@
-## 테스트
-  ```:~ $git clone ```
+## git 다운로드
+  ```:~ $git clone https://github.com/yugwangsik/python_code.git```
 
 
 ## 실행 전 준비 및 경로 변경
