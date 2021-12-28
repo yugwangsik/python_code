@@ -23,4 +23,4 @@
 
 ## result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
-    <img src="/img/test_result.PNG" width="400px" height="2000px"></img>
+    <img src="/img/test_result.PNG" width="400px" height="1500px"></img>
