@@ -22,4 +22,5 @@
   - dataframe형태로 저장된 리스트를 dataframe으로 다시 합친다.
 
 ## result
-  - 입력한 날짜 범위에 맞는 데이터를 확인 한다.
+  - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
+    <img src="/img/test_result.PNG" width="400px" height="2000px"></img>
