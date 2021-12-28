@@ -1,5 +1,5 @@
 ## 실행 전 준비 및 경로 변경
-  <pre>fffff</pre>
+  <pre><code>fffff</code></pre>
 
 
 ## 실행 전 준비 및 경로 변경
