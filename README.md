@@ -9,6 +9,7 @@
     <img src="/img/line.PNG" width="450px" height="35px"></img>
     
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.
+    <img src="/img/path.PNG" width="450px" height="35px"></img>
 
 ## 실행 및 날짜 입력
   - csv to dataframe.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
