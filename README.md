@@ -6,7 +6,7 @@
   - csv폴더에서 테스트용 csv파일을 다운로드한다.
   - csv to dataframe.py 파일을 다운로드한다.
   - csv to dataframe.py 48번 줄에 로컬 경로를 자신의 환경에 맞추어서 변경한다.
-    <img src="/img/line.PNG" width="450px" height="50px"></img>
+    <img src="/img/line.PNG" width="450px" height="20px"></img>
     
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.
 
