@@ -2,7 +2,7 @@
   대용량 csv파일의 데이터를 Dataframe으로 바꾸어서 원하는 날짜의 데이터만 출력하는 프로그램이다.
 
 ## Git 다운로드
-  ```:~ $git clone https://github.com/yugwangsik/python_code.git```
+  ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
 
 
 ## 실행 전 준비 및 경로 변경
