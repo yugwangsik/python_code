@@ -1,14 +1,21 @@
 # 개요
-  대용량 csv파일의 데이터를 Dataframe으로 바꾸어서 원하는 날짜의 데이터만 출력하는 프로그램이다.
+  현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하여 list의 파일을 하나씩 읽어온 뒤 dataframe으로 변환한 뒤 계속해서 합침.
+  그리고 사용자는 원하는 날짜의 범위를 입력하면 해당 날짜 범위의 데이터를 출력하는 프로그램.
+  ※날짜 입력 ex)2021-08-01 00:00:00
+                2021-10-31 23:59:59
 
 ## Git 다운로드
   ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
 
 
 ## 실행 전 준비 및 경로 변경
-  - csv폴더에서 테스트용 csv파일을 다운로드한다.
-  - csv_to_dataframe.py 파일을 다운로드한다.
+  - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다. 단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
+  - csv_to_dataframe.py 파일을 준비한다.
   - csv_to_dataframe.py 48번 줄에 로컬 경로를 자신의 환경에 맞추어서 변경한다.
+    <Linux>
+      ```:~ $vim python_csv_project/csv_to_dataframe.py```
+    <window>
+      ```python 편집가능한 IDE에서 csv_to_dataframe.py 열기```
     <img src="/img/line.PNG" width="50%" height="50%"></img>
     
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.<br>
