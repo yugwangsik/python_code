@@ -2,7 +2,7 @@
   현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하여 list의 파일을 하나씩 읽어온 뒤 dataframe으로 변환한 뒤 계속해서 합침.<br>
   그리고 사용자는 원하는 날짜의 범위를 입력하면 해당 날짜 범위의 데이터를 출력하는 프로그램.<br>
   ※날짜 입력 ex)2021-08-01 00:00:00<br>
-　　　　　　　2021-10-31 23:59:59
+　　　　　　2021-10-31 23:59:59
 
 ## Git 다운로드
   ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
