@@ -22,7 +22,8 @@
       <img src="/img/line.PNG" width="50%" height="50%"></img>
     
   - python_csv_project/csv에 테스트용 csv파일을 이동시킨다.<br>
-    <img src="/img/path.PNG" width="600px" height="200px"></img>
+    &lt;window&gt;<br>
+    <img src="/img/win_path.PNG" width="600px" height="200px"></img>
 
 ## 실행
   ```:~ $python3 csv_to_dataframe.py```
