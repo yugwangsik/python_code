@@ -15,6 +15,7 @@
   - csv_to_dataframe.py 48번 줄에 로컬 경로를 자신의 환경에 맞추어서 변경한다.<br>
     	&lt;Linux&gt;<br>
       ```:~ $vim python_csv_project/csv_to_dataframe.py```<br>
+      ```vim 편집기에서 라인번호 확인 명령어 --> :set nu```<br>
       <img src="/img/48line.PNG" width="50%" height="50%"></img><br><br>
     &lt;window&gt;<br>
       ```python 편집가능한 IDE에서 csv_to_dataframe.py 열기```<br>
