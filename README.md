@@ -22,6 +22,8 @@
       <img src="/img/line.PNG" width="50%" height="50%"></img>
     
   - python_csv_project/csv에 테스트용 csv파일을 이동시킨다.<br>
+    &lt;Linux&gt;<br>
+    <img src="/img/linux_path.PNG" width="300px" height="200px"></img><br><br>
     &lt;window&gt;<br>
     <img src="/img/win_path.PNG" width="300px" height="200px"></img>
 
