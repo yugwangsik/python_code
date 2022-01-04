@@ -52,4 +52,4 @@
 
 ## Result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
-    <img src="/img/result.PNG" width="400px" height="1000px"></img>
+    <img src="/img/result.PNG" width="450px" height="1000px"></img>
