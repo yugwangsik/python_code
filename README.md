@@ -14,7 +14,10 @@
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.<br>
     <img src="/img/path.PNG" width="600px" height="200px"></img>
 
-## 실행 및 날짜 입력
+## 실행
+  ```:~ $python3 csv_to_dataframe.py```
+  
+## 날짜 입력
   - csv_to_dataframe.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
   - 날짜를 입력할 때 형식은 yyyy-mm-dd hh:mm:ss 형식으로 입력한다.<br>
     <img src="/img/test.PNG" width="400px" height="50px"></img>
