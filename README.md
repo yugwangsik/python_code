@@ -23,7 +23,7 @@
     
   - python_csv_project/csv에 테스트용 csv파일을 이동시킨다.<br>
     &lt;window&gt;<br>
-    <img src="/img/win_path.PNG" width="300px" height="300px"></img>
+    <img src="/img/win_path.PNG" width="300px" height="200px"></img>
 
 ## 실행
   ```:~ $python3 csv_to_dataframe.py```
