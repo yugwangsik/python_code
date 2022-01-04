@@ -41,7 +41,7 @@
 ## 날짜 입력
   - csv_to_dataframe.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
   - 날짜를 입력할 때 형식은 yyyy-mm-dd hh:mm:ss 형식으로 입력한다.<br>
-    <img src="/img/test.PNG" width="50%" height="50%"></img>
+    <img src="/img/date.PNG" width="50%" height="50%"></img>
 
 
 ## 데이터 read 및 변환
@@ -53,3 +53,10 @@
 ## Result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
     <img src="/img/result.PNG" width="450px" height="1000px"></img>
+
+## UPGRADE
+  - 사용자가 원하는 월만 출력할 수 있도록 구현 요함<br>
+  ex)<br>
+  1번. 전체 검색<br>
+  2번. 범위 검색<br>
+  3번. 월만 검색<br>
