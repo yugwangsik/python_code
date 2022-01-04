@@ -1,10 +1,13 @@
 # 개요
   현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하고, list의 경로에 파일을 하나씩 읽어온 뒤 dataframe으로 변환한 뒤 계속해서 합친다.<br>
   그리고 사용자는 원하는 날짜의 범위를 입력하면 해당 날짜 범위의 데이터를 출력하는 프로그램이다.<br>
+  +실행명령어에 'list'를 추가하여 실행하면 검색된 디렉토리의 전체 개수, csv파일 전체 개수를 알 수 있다.<br>
+  ※실행 ex)<br>
+    :~ $python3 csv_to_dataframe.py list
   ※날짜 입력 ex)<br>
     2021-08-01 00:00:00<br>
-    2021-10-31 23:59:59
-
+    2021-10-31 23:59:59<br><br>
+    
 
 ## Git 다운로드
   ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
@@ -31,7 +34,8 @@
 
 
 ## 실행
-  ```:~ $python3 csv_to_dataframe.py```
+  ```:~ $python3 csv_to_dataframe.py```<br>
+  ```:~ $python3 csv_to_dataframe.py list```
   
   
 ## 날짜 입력
