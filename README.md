@@ -12,11 +12,11 @@
   - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다. 단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
   - csv_to_dataframe.py 파일을 준비한다.
   - csv_to_dataframe.py 48번 줄에 로컬 경로를 자신의 환경에 맞추어서 변경한다.
-    <Linux>
+    	&lt;Linux&gt;
       ```:~ $vim python_csv_project/csv_to_dataframe.py```
     <window>
       ```python 편집가능한 IDE에서 csv_to_dataframe.py 열기```
-    <img src="/img/line.PNG" width="50%" height="50%"></img>
+    <br><img src="/img/line.PNG" width="50%" height="50%"></img>
     
   - 로컬 경로 하위에 테스트용 csv파일을 이동시킨다.<br>
     <img src="/img/path.PNG" width="600px" height="200px"></img>
