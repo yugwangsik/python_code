@@ -25,7 +25,7 @@
     &lt;Linux&gt;<br>
     <img src="/img/linux_path.PNG" width="50%" height="50%"></img><br><br>
     &lt;window&gt;<br>
-    <img src="/img/win_path.PNG" width="300px" height="200px"></img>
+    <img src="/img/win_path.PNG" width="50%" height="50%"></img>
 
 ## 실행
   ```:~ $python3 csv_to_dataframe.py```
