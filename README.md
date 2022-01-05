@@ -5,8 +5,8 @@
   ※실행 ex)<br>
     :~ $python3 csv_to_dataframe.py list<br>
   ※날짜 입력 ex)<br>
-    2021-08-01 00:00:00<br>
-    2021-10-31 23:59:59<br><br>
+    2021-08-01<br>
+    2021-8-1<br>
     
 
 ## Git 다운로드
