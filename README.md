@@ -55,7 +55,7 @@
   
 ## 1. 전체 데이터 검색
   - 입력 칸에 1 입력한다.
-  <br><img src="/img/select1.PNG" width="30%" height="30%"></img>
+  <br><img src="/img/select1.PNG" width="30%" height="30%"></img><br>
   
 
 ## 2-1. 날짜 범위 데이터 검색
@@ -68,10 +68,9 @@
     <br><img src="/img/select2_date.PNG" width="30%" height="30%"></img>
 
 
-<!--## 2-3. Result
+## 2-3. Result
   - 입력한 날짜 범위에 맞는 데이터가 출력 되었는지 확인 한다.
     <br><img src="/img/select2_result.PNG" width="30%" height="30%"></img>
--->
 
 
 ## 3-1. 해당 월만 검색
