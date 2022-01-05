@@ -25,7 +25,7 @@
       <img src="/img/linux_line.PNG" width="50%" height="50%"></img><br><br>
     &lt;window&gt;<br>
       ```python 편집가능한 IDE에서 csv_to_dataframe_vx.py 열기```<br>
-      <img src="/img/line.PNG" width="50%" height="50%"></img>
+      <img src="/img/win_line.PNG" width="50%" height="50%"></img>
     
   - python_csv_project/csv에 테스트용 csv파일을 이동시킨다.<br><br>
     &lt;Linux&gt;<br>
