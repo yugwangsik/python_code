@@ -40,12 +40,12 @@
   
   
 ## 메뉴
-  <img src="/img/menu.PNG" width="50%" height="50%"></img>
+  <img src="/img/menu.PNG" width="30%" height="30%"></img>
 
   
 ## 1. 전체 데이터 검색
   - <br>
-  <img src="/img/select1.PNG" width="50%" height="50%"></img>
+  <img src="/img/select1.PNG" width="30%" height="30%"></img>
   
   
 ## 날짜 입력
