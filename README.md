@@ -68,9 +68,9 @@
     <br><br><img src="/img/select2_date.PNG" width="30%" height="30%"></img>
 
 
-## Result
+## 2. Result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
-    <img src="/img/select2_result.PNG" width="50%" height="50%"></img>
+    <img src="/img/select2_result.PNG" width="30%" height="30%"></img>
 
 ## UPGRADE
   - 사용자가 원하는 월만 출력할 수 있도록 구현 요함<br>
