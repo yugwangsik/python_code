@@ -57,9 +57,9 @@
   <br><br><img src="/img/select2.PNG" width="30%" height="30%"></img>
 
 
-## 날짜 입력
+## 2. 날짜 입력
   - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
-    <br><br><img src="/img/select_date.PNG" width="50%" height="50%"></img>
+    <br><br><img src="/img/select2_date.PNG" width="50%" height="50%"></img>
 
 
 ## 데이터 read 및 변환
