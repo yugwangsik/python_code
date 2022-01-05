@@ -52,13 +52,14 @@
   <br><br><img src="/img/select1.PNG" width="30%" height="30%"></img>
   
 
-<!--## Result
+## 2. 날짜 범위 데이터 검색
+  - 입력 칸에 2 입력한다.
+  <br><br><img src="/img/select2.PNG" width="30%" height="30%"></img>
 
--->
+
 ## 날짜 입력
-  - csv_to_dataframe_vx.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
-  - 날짜를 입력할 때 형식은 yyyy-mm-dd hh:mm:ss 형식으로 입력한다.<br>
-    <img src="/img/date.PNG" width="50%" height="50%"></img>
+  - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
+    <br><br><img src="/img/select_date.PNG" width="50%" height="50%"></img>
 
 
 ## 데이터 read 및 변환
