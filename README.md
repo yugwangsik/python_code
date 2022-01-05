@@ -32,6 +32,12 @@
     <img src="/img/linux_path.PNG" width="50%" height="50%"></img><br><br>
     &lt;window&gt;<br>
     <img src="/img/win_path.PNG" width="30%" height="30%"></img>
+    
+    
+## 데이터 read 및 변환
+  - csv_to_dataframe_vx.py를 실행 시키면 자신의 폴더 및 하위에 있는 csv파일의  경로를 리스트 형태로 저장한다.
+  - 저장된 리스트에서 csv파일을 하나씩 dataframe 형태로 읽어와서 리스트에 저장한다.
+  - dataframe형태로 저장된 리스트를 dataframe으로 다시 합친다.
 
 
 ## 실행
@@ -59,18 +65,12 @@
 
 ## 2. 날짜 입력
   - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
-    <br><br><img src="/img/select2_date.PNG" width="50%" height="50%"></img>
-
-
-## 데이터 read 및 변환
-  - csv_to_dataframe_vx.py를 실행 시키면 자신의 폴더 및 하위에 있는 csv파일의  경로를 리스트 형태로 저장한다.
-  - 저장된 리스트에서 csv파일을 하나씩 dataframe 형태로 읽어와서 리스트에 저장한다.
-  - dataframe형태로 저장된 리스트를 dataframe으로 다시 합친다.
+    <br><br><img src="/img/select2_date.PNG" width="30%" height="30%"></img>
 
 
 ## Result
   - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
-    <img src="/img/result.PNG" width="450px" height="1000px"></img>
+    <img src="/img/select2_result.PNG" width="50%" height="50%"></img>
 
 ## UPGRADE
   - 사용자가 원하는 월만 출력할 수 있도록 구현 요함<br>
