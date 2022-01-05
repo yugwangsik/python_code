@@ -39,6 +39,15 @@
   ```:~ $python3 csv_to_dataframe_vx.py list```
   
   
+## 메뉴
+  <img src="/img/menu.PNG" width="50%" height="50%"></img>
+
+  
+## 1. 전체 데이터 검색
+  - <br>
+  <img src="/img/select1.PNG" width="50%" height="50%"></img>
+  
+  
 ## 날짜 입력
   - csv_to_dataframe_vx.py를 실행 시킨 뒤 시작날짜 종료날짜를 입력한다.
   - 날짜를 입력할 때 형식은 yyyy-mm-dd hh:mm:ss 형식으로 입력한다.<br>
