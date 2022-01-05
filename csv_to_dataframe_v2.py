@@ -45,7 +45,7 @@ def csv_to_df_merge(_flist, fnum=None):
 
 
 
-def file_dir_cnt(f_cnt, d_cnt, cnt):                                                          #    sys.argv[0]  [1]   [2]
+def file_dir_cnt(f_cnt, d_cnt, cnt):                                                     #    sys.argv[0]       [1]   [2]
     if cnt > 1:                                             #명령어의 매개변수 개수를 측정 ex) python test.py       1    2
         if sys.argv[1] == 'list':
             print("총 디렉토리 개수: " + str(f_cnt))
