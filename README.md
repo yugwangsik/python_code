@@ -55,22 +55,41 @@
   
 ## 1. 전체 데이터 검색
   - 입력 칸에 1 입력한다.
-  <br><br><img src="/img/select1.PNG" width="30%" height="30%"></img>
+  <br><img src="/img/select1.PNG" width="30%" height="30%"></img>
   
 
 ## 2. 날짜 범위 데이터 검색
   - 입력 칸에 2 입력한다.
-  <br><br><img src="/img/select2.PNG" width="30%" height="30%"></img>
+  <br><img src="/img/select2.PNG" width="30%" height="30%"></img>
 
 
 ## 2. 날짜 입력
   - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
-    <br><br><img src="/img/select2_date.PNG" width="30%" height="30%"></img>
+    <br><img src="/img/select2_date.PNG" width="30%" height="30%"></img>
 
 
-## 2. Result
-  - 입력한 날짜 범위에 맞는 데이터를 확인 한다.<br>
-    <img src="/img/select2_result.PNG" width="30%" height="30%"></img>
+<!--## 2. Result
+  - 입력한 날짜 범위에 맞는 데이터가 출력 되었는지 확인 한다.
+    <br><img src="/img/select2_result.PNG" width="30%" height="30%"></img>
+-->
+
+
+## 3. 해당 월만 검색
+  - 입력 칸에 3 입력한다.
+  <br><img src="/img/select3.PNG" width="30%" height="30%"></img>
+
+
+## 3. 날짜 입력
+  - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
+  - 연도의 기준은 현재 연도를 기준으로 한다.
+    <br><img src="/img/select3_date.PNG" width="30%" height="30%"></img>
+
+
+<!--## 3. Result
+  - 입력한 날짜 범위에 맞는 데이터가 출력 되었는지 확인 한다.
+    <br><img src="/img/select2_result.PNG" width="30%" height="30%"></img>
+-->
+
 
 ## UPGRADE
   - 사용자가 원하는 월만 출력할 수 있도록 구현 요함<br>
