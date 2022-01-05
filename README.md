@@ -3,7 +3,7 @@
   그리고 사용자는 원하는 날짜의 범위를 입력하면 해당 날짜 범위의 데이터를 출력하는 프로그램이다.<br>
   +실행명령어에 'list'를 추가하여 실행하면 검색된 디렉토리의 전체 개수, csv파일 전체 개수를 알 수 있다.<br>
   ※실행 ex)<br>
-    :~ $python3 csv_to_dataframe.py list<br>
+    :~ $python3 csv_to_dataframe_vx.py list<br>
   ※날짜 입력 ex)<br>
     2021-08-01<br>
     2021-8-1<br>
