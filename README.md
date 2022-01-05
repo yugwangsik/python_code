@@ -82,7 +82,7 @@
 ## 3-2. 날짜 입력
   - 날짜 입력 형식은 yyyy-mm-dd 형식 or yyyy-m-d 이다.
   - 연도의 기준은 현재 연도를 기준으로 한다.
-    <br><img src="/img/select3_date.PNG" width="30%" height="30%"></img>
+    <br><img src="/img/select3_date.PNG" width="30%" height="40%"></img>
 
 
 ## 3-3. Result
