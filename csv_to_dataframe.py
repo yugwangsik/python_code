@@ -83,6 +83,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
     
     _first = date_sort[0]
     _last = date_sort[len(date_sort)-1]
+    _result = str(len(date_list))
 
     j = len(date_list)
     cnt = 0
@@ -93,16 +94,16 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         while(cnt2 < j):
             dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S')
             if ds == dl:
-                #print(date_list[cnt2])
-                df_list = _df.iloc[cnt2]
-                print(df_list)
+                print(date_list[cnt2])
+                #df_list = _df.iloc[cnt2]
+                #print(df_list)
                 cnt2 += 1
             else:
                 cnt2 += 1
         cnt += 1
         cnt2 = 0
 
-    return _first, _last
+    return _first, _last, _result
 
 
 #def save_df(_df_list):
@@ -115,11 +116,14 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
     global global_num
     try:
         if _num == 1:
-            file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
+            #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             print("전체 데이터 개수: " + str(len(_df)))
-            first, last = df_sort(_df)
+            first, last, result = df_sort(_df)
+            #print("■ 검색된 데이터 수: " + result)
             print("■ 첫번째 데이터: " + first)
             print("■ 마지막 데이터: " + last)
+            file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
+            print("■ 검색된 데이터 수: " + result)
             global_num = 0
             #save_df(_df)
 
@@ -129,8 +133,10 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             date2 = input("■ 종료날짜 ex) 2021-12-31 :") + " 23:59:59"            #사용자가 종료 날짜 입력
             date_time2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')          #입력 날짜를 datetime으로 변환
 
+            #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
+            _, _, result = df_sort(_df, date_time1, date_time2)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            df_sort(_df, date_time1, date_time2)
+            print("■ 검색된 데이터 수: " + result)
 
             global_num = 0
 
@@ -143,8 +149,10 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             end = str(now_year) + "-" + str(input_m) + "-" + day + " 23:59:59"
             end_date = datetime.strptime(end, '%Y-%m-%d %H:%M:%S')  
 
+            #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
+            _, _, result = df_sort(_df, start_date, end_date)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            df_sort(_df, start_date, end_date)
+            print("■ 검색된 데이터 수: " + result)
             global_num = 0
 
         elif _num == 0:
