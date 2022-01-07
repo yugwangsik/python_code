@@ -4,8 +4,9 @@ import os
 import sys
 from datetime import datetime
 import calendar
+import pickle
 
-global_num = 0
+global_num = int(sys.argv[2])
 
 def search_dir(dir_path, _filelist, _dirlist):
 
@@ -65,6 +66,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
     cnt = 0
     date_list = []                                                      #데이터 프레임의 날짜 값을 넣을 리스트 생성
     date_sort = []
+    df_list = pd.DataFrame()
 
     while(cnt < i):                                             
         t = datetime.strptime(_df[0][cnt], '%Y-%m-%d %H:%M:%S')             #데이터프레임에서 날짜열을 가져와서 dataTime형식으로 변환
@@ -78,6 +80,9 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         cnt += 1
 
     date_sort = sorted(date_sort)
+    
+    _first = date_sort[0]
+    _last = date_sort[len(date_sort)-1]
 
     j = len(date_list)
     cnt = 0
@@ -88,24 +93,35 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         while(cnt2 < j):
             dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S')
             if ds == dl:
-                print(date_list[cnt2])
+                #print(date_list[cnt2])
+                df_list = _df.iloc[cnt2]
+                print(df_list)
                 cnt2 += 1
             else:
                 cnt2 += 1
         cnt += 1
         cnt2 = 0
 
+    return _first, _last
 
 
+#def save_df(_df_list):
+    #input_save = input("검색 결과를 저장하시겠습니까? (Y/N)")
+    #if input_save == 'Y' or input_save == 'y':
+        #with open('data.pickle', 'wb') ad f:
+              #pickle.dump(_df_
+        
 def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
     global global_num
     try:
         if _num == 1:
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             print("전체 데이터 개수: " + str(len(_df)))
-            df_sort(_df)
-
+            first, last = df_sort(_df)
+            print("■ 첫번째 데이터: " + first)
+            print("■ 마지막 데이터: " + last)
             global_num = 0
+            #save_df(_df)
 
         elif _num == 2:
             date1 = input("■ 시작날짜 ex) 2021-06-01 :") + " 00:00:00"            #사용자가 시작 날짜 입력
@@ -147,14 +163,27 @@ if __name__== "__main__" :
     file_list = []
     dir_list = []
     _f_limit=1000 
-    csvpath = "C:/Users/Keti/Desktop/test"                       #로컬경로
+    csvpath = "/home/gwangsik/python_csv_project"                       #로컬경로
 
     search_dir(csvpath, file_list, dir_list)                     #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
     df = csv_to_df_merge(file_list, _f_limit)                    #df에 저장된 경로에 csv파일을 읽어와서 저장
 
-
-    while(True):
-        try:
+    print(type(df))
+    try:
+       if global_num == 1 or global_num == 2 or global_num == 3:
+           select(global_num, file_list, dir_list, df, len(sys.argv))
+       else:
+           #print("---------메뉴---------")
+           #print("0. 끝내기 \n1. 전체 데이터 검색 \n2. 날짜 범위 데이터 검색 \n3. 해당 월만 검색 \n")
+           num = int(sys.argv[2])       #int(input("\n원하는 메뉴의 번호를 입력하세요: "))
+           global_num = num
+           select(num, file_list, dir_list, df, len(sys.argv))
+    except Exception as e:
+           print(e)
+           print("\n■ ERROR: 다시 입력 하세요.\n")
+    '''
+    #while(True):
+       	try:
             if global_num == 1 or global_num == 2 or global_num == 3:
                 select(global_num, file_list, dir_list, df, len(sys.argv))
             else:
@@ -167,6 +196,7 @@ if __name__== "__main__" :
             print(e)
             print("\n■ ERROR: 다시 입력 하세요.\n")
             continue
+    '''
 
             
             
