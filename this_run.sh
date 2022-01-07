@@ -11,7 +11,6 @@
 	if [ $input = 0 ]
 	then
 		echo "■ 종료합니다."
-		break
 	else
 		time python3 csv_to_dataframe.py list $input
 	fi

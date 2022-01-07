@@ -66,7 +66,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
     cnt = 0
     date_list = []                                                      #데이터 프레임의 날짜 값을 넣을 리스트 생성
     date_sort = []
-    df_list = pd.DataFrame()
+    __df_sort = pd.DataFrame()
 
     while(cnt < i):                                             
         t = datetime.strptime(_df[0][cnt], '%Y-%m-%d %H:%M:%S')             #데이터프레임에서 날짜열을 가져와서 dataTime형식으로 변환
@@ -94,31 +94,36 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         while(cnt2 < j):
             dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S')
             if ds == dl:
-                print(date_list[cnt2])
-                #df_list = _df.iloc[cnt2]
-                #print(df_list)
+                date_list[cnt] = date_list[cnt2]
+                print(date_list[cnt])
                 cnt2 += 1
             else:
                 cnt2 += 1
         cnt += 1
         cnt2 = 0
 
-    return _first, _last, _result
+    __df_sort = pd.concat(date_list, axis=0, ignore_index=True)
+
+    return _first, _last, _result, __df_sort
 
 
-#def save_df(_df_list):
-    #input_save = input("검색 결과를 저장하시겠습니까? (Y/N)")
-    #if input_save == 'Y' or input_save == 'y':
-        #with open('data.pickle', 'wb') ad f:
-              #pickle.dump(_df_
-        
+
+
+def save_df(_df_):
+    print("검색 결과를 저장했습니다.")
+    with open('df_data.pkl', 'wb') as f:
+         pickle.dump(_df_, f)
+       
+
+
+
 def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
     global global_num
     try:
         if _num == 1:
             #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             print("전체 데이터 개수: " + str(len(_df)))
-            first, last, result = df_sort(_df)
+            first, last, result, _df_sort = df_sort(_df)
             #print("■ 검색된 데이터 수: " + result)
             print("■ 첫번째 데이터: " + first)
             print("■ 마지막 데이터: " + last)
@@ -134,7 +139,7 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             date_time2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')          #입력 날짜를 datetime으로 변환
 
             #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            _, _, result = df_sort(_df, date_time1, date_time2)
+            _, _, result, _df_sort = df_sort(_df, date_time1, date_time2)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             print("■ 검색된 데이터 수: " + result)
 
@@ -150,13 +155,15 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             end_date = datetime.strptime(end, '%Y-%m-%d %H:%M:%S')  
 
             #file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            _, _, result = df_sort(_df, start_date, end_date)
+            _, _, result, _df_sort = df_sort(_df, start_date, end_date)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             print("■ 검색된 데이터 수: " + result)
             global_num = 0
 
         elif _num == 0:
             sys.exit("■ 종료합니다.")
+        
+        return _df_sort
             
     except Exception as e:
         print(e)
@@ -179,7 +186,8 @@ if __name__== "__main__" :
     print(type(df))
     try:
        if global_num == 1 or global_num == 2 or global_num == 3:
-           select(global_num, file_list, dir_list, df, len(sys.argv))
+           df_sort = select(global_num, file_list, dir_list, df, len(sys.argv))
+           save_df(df_sort)
        else:
            #print("---------메뉴---------")
            #print("0. 끝내기 \n1. 전체 데이터 검색 \n2. 날짜 범위 데이터 검색 \n3. 해당 월만 검색 \n")
