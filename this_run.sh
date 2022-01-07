@@ -1,4 +1,4 @@
-while true; do
+
 	echo "------------메뉴------------"
 	echo "0. 끝내기"
 	echo "1. 전체 데이터 검색"
@@ -15,4 +15,4 @@ while true; do
 	else
 		time python3 csv_to_dataframe.py list $input
 	fi
-done
+
