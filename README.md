@@ -66,7 +66,7 @@
     
 ## 2-1. 날짜 범위 데이터 검색
   - 입력 칸에 2 입력한다.
-  <br><img src="/img/select2.PNG" width="30%" height="30%"></img>
+  <br><img src="/img/select2.PNG" width="50%" height="50%"></img>
 
 
 ## 2-2. 날짜 입력
