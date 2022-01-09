@@ -59,6 +59,11 @@
   <br><img src="/img/select1.PNG" width="30%" height="30%"></img><br>
   
 
+## 1-2. Result
+  - 전체 데이터가 출력 되었는지 확인 한다.
+    <br><img src="/img/select1_result.PNG" width="30%" height="30%"></img>
+    
+    
 ## 2-1. 날짜 범위 데이터 검색
   - 입력 칸에 2 입력한다.
   <br><img src="/img/select2.PNG" width="30%" height="30%"></img>
