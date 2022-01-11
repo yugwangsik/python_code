@@ -76,7 +76,7 @@
 
 ## 2-3. Result
   - 입력한 날짜 범위에 맞는 데이터가 출력 되었는지 확인 한다.
-    <br><img src="/img/select2_result.PNG" width="30%" height="30%"></img>
+    <br><img src="/img/select2_result.PNG" width="70%" height="70%"></img>
 
 
 ## 3-1. 해당 월만 검색
@@ -92,7 +92,7 @@
 
 ## 3-3. Result
   - 입력한 날짜 범위에 맞는 데이터가 출력 되었는지 확인 한다.
-    <br><img src="/img/select3_result.PNG" width="30%" height="30%"></img>
+    <br><img src="/img/select3_result.PNG" width="70%" height="70%"></img>
 
 
 
