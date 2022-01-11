@@ -115,10 +115,10 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 def save_df(_df_, _path):
     print("검색 결과를 pickle 파일로 저장했습니다.")
-    print(type(_df_))
+    #print(type(_df_))
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
-    print("검색 결과를 csv 파일로 저장했습니다.")
+    print("검색 결과를 txt 파일로 저장했습니다.")
     _df_.to_csv('search.txt', header=False, index=False, encoding='cp949')
        
 
