@@ -81,9 +81,11 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
     date_sort = sorted(date_sort)
     
+    
     _first = date_sort[0]
     _last = date_sort[len(date_sort)-1]
     _result = str(len(date_list))
+    result_list = []
 
     j = len(date_list)
     cnt = 0
@@ -94,9 +96,11 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         while(cnt2 < j):
             dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S')
             if ds == dl:
-                date_list[cnt] = date_list[cnt2]
-                print(date_list[cnt])
+                #result_list[cnt] = date_list[cnt2]
+                result_list.append(date_list[cnt2])
+                print(result_list[cnt])
                 cnt2 += 1
+                break
             else:
                 cnt2 += 1
         cnt += 1
@@ -109,10 +113,13 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 
 
-def save_df(_df_):
-    print("검색 결과를 저장했습니다.")
+def save_df(_df_, _path):
+    print("검색 결과를 pickle 파일로 저장했습니다.")
+    print(type(_df_))
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
+    print("검색 결과를 csv 파일로 저장했습니다.")
+    _df_.to_csv('search.txt', header=False, index=False, encoding='cp949')
        
 
 
@@ -183,11 +190,11 @@ if __name__== "__main__" :
     search_dir(csvpath, file_list, dir_list)                     #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
     df = csv_to_df_merge(file_list, _f_limit)                    #df에 저장된 경로에 csv파일을 읽어와서 저장
 
-    print(type(df))
+    #print(type(df))
     try:
        if global_num == 1 or global_num == 2 or global_num == 3:
            df_sort = select(global_num, file_list, dir_list, df, len(sys.argv))
-           save_df(df_sort)
+           save_df(df_sort, csvpath)
        else:
            #print("---------메뉴---------")
            #print("0. 끝내기 \n1. 전체 데이터 검색 \n2. 날짜 범위 데이터 검색 \n3. 해당 월만 검색 \n")
