@@ -1,3 +1,8 @@
+if [ -f 'info.ini' ]; then
+	source info.ini
+	echo "----------------------------"
+	echo "실행 작업: csv_to_dataframe.py"
+	echo "user_path: " $user_path
 
 	echo "------------메뉴------------"
 	echo "0. 끝내기"
@@ -12,6 +17,6 @@
 	then
 		echo "■ 종료합니다."
 	else
-		time python3 csv_to_dataframe.py list $input
+		time python3 csv_to_dataframe.py list $input $user_path
 	fi
-
+fi

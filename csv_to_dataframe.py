@@ -185,7 +185,7 @@ if __name__== "__main__" :
     file_list = []
     dir_list = []
     _f_limit=1000 
-    csvpath = "/home/gwangsik/python_csv_project"                       #로컬경로
+    csvpath = sys.argv[3]                       #로컬경로
 
     search_dir(csvpath, file_list, dir_list)                     #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
     df = csv_to_df_merge(file_list, _f_limit)                    #df에 저장된 경로에 csv파일을 읽어와서 저장
