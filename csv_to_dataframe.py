@@ -113,13 +113,20 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 
 
-def save_df(_df_, _path):
+def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를 pickle 파일로 저장했습니다.")
     #print(type(_df_))
+    if _option1 == None and _option2 == None:
+        save_file = 'select1_allData.txt'
+    elif _option2 == None:
+        save_file = 'select3_' + _option1 + '.txt'
+    elif _option1 is not None and _option2 is not None:
+        save_file = 'select2_' + _option1 + '_' + _option2 + '.txt'
+    
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
     print("검색 결과를 txt 파일로 저장했습니다.")
-    _df_.to_csv('search.txt', header=False, index=False, encoding='cp949')
+    _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
 
 
@@ -151,6 +158,7 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             print("■ 검색된 데이터 수: " + result)
 
             global_num = 0
+            return _df_sort, date1, date2
 
         elif _num == 3:
             now_year = 2021                                                         #datetime.now().year
@@ -167,10 +175,12 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             print("■ 검색된 데이터 수: " + result)
             global_num = 0
 
+            return _df_sort, str(input_m), None
+
         elif _num == 0:
             sys.exit("■ 종료합니다.")
         
-        return _df_sort
+        return _df_sort, None, None
             
     except Exception as e:
         print(e)
@@ -193,8 +203,8 @@ if __name__== "__main__" :
     #print(type(df))
     try:
        if global_num == 1 or global_num == 2 or global_num == 3:
-           df_sort = select(global_num, file_list, dir_list, df, len(sys.argv))
-           save_df(df_sort, csvpath)
+           df_sort, option1, option2 = select(global_num, file_list, dir_list, df, len(sys.argv))
+           save_df(df_sort, csvpath, option1, option2)
        else:
            #print("---------메뉴---------")
            #print("0. 끝내기 \n1. 전체 데이터 검색 \n2. 날짜 범위 데이터 검색 \n3. 해당 월만 검색 \n")
