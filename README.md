@@ -99,6 +99,6 @@
 
 
 ## result_txt
-  <img src="/img/result_txt.PNG" width="50%" height="50%"><br>
+  <img src="/img/result_txt.PNG" width="100%" height="80%"><br>
 
 
