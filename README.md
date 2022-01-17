@@ -1,7 +1,8 @@
 # 개요
   현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하고, list의 경로에 파일을 하나씩 읽어온 뒤 dataframe으로 변환하여 하나의 형태로 합친다.<br>
-  그리고 전체 데이터 검색, 날짜 범위 데이터 검색, 해당 월만 검색, 끝내기 등의 기능을 지원한다.<br><br>
-  추가적으로 검색된 결과를 pickle, text 파일로 저장한다.<br><br>
+  그리고 전체 데이터 검색, 날짜 범위 데이터 검색, 해당 월만 검색, 끝내기 등의 기능을 지원한다.<br>
+  추가적으로 검색된 결과를 pickle, text 파일로 저장한다.<br>
+  저장경로는 result_txt 디렉토리에 저장한다.<br>
   +this_run.sh를 실행하면 마지막 결과로 전체 데이터 개수, 전체 csv파일 개수, 검색된 데이터 개수를 알 수 있다.<br><br>
   ※실행 ex)<br>
     :~ $bash this_run.sh<br><br>
@@ -19,14 +20,11 @@
   - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다.<br> 
     단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
   - this_run.sh, csv_to_dataframe.py 파일을 준비한다.
-  - csv_to_dataframe.py csvpath 변수의 경로를 자신의 환경에 맞추어서 변경한다.<br><br>
+  - info.ini user_path 변수의 경로를 자신의 환경에 맞추어서 변경한다.<br><br>
     	&lt;Linux&gt;<br>
-      ```:~ $vim python_csv_project/csv_to_dataframe.py```<br>
-      ```vim 편집기에서 라인번호 확인 명령어 --> :set nu```<br>
-      <img src="/img/linux_line.PNG" width="50%" height="50%"></img><br><br>
-    &lt;window&gt;<br>
-      ```python 편집가능한 IDE에서 csv_to_dataframe.py 열기```<br>
-      <img src="/img/win_line.PNG" width="50%" height="50%"></img>
+      ```:~ $vim info.ini```<br>
+      <img src="/img/user_path.PNG" width="50%" height="50%"></img><br><br>
+    
     
   - python_csv_project/csv에 테스트용 csv파일을 이동시킨다.<br><br>
     &lt;Linux&gt;<br>
@@ -97,10 +95,7 @@
 
 
 
-<!--## UPGRADE
-  - 사용자가 원하는 월만 출력할 수 있도록 구현 요함<br>
-  ex)<br>
-  1번. 전체 검색<br>
-  2번. 범위 검색<br>
-  3번. 월만 검색<br>
--->
+## result_txt
+  <img src="/img/result_txt.PNG" width="100%" height="60%"><br>
+
+
