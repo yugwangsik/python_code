@@ -22,8 +22,7 @@
   - this_run.sh, csv_to_dataframe.py 파일을 준비한다.
   - info.ini user_path 변수의 경로를 자신의 환경에 맞추어서 변경한다.<br><br>
     	&lt;Linux&gt;<br>
-      ```:~ $vim python_csv_project/csv_to_dataframe.py```<br>
-      ```vim 편집기에서 라인번호 확인 명령어 --> :set nu```<br>
+      ```:~ $vim info.ini```<br>
       <img src="/img/user_path.PNG" width="50%" height="50%"></img><br><br>
     
     
