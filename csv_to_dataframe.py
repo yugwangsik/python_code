@@ -5,8 +5,10 @@ import sys
 from datetime import datetime
 import calendar
 import pickle
+import numpy as np
 
 global_num = int(sys.argv[2])
+pd.set_option('display.max_rows', None)
 
 def search_dir(dir_path, _filelist, _dirlist):
 
