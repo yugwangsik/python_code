@@ -2,6 +2,7 @@
 import os
 import csv
 import re
+import sys
 
 def search_dir(dir_path, _filelist, _dirlist):
     
@@ -31,12 +32,21 @@ def search_dir(dir_path, _filelist, _dirlist):
         search_dir(toDir, _filelist, _dirlist)
 
 
-if __name__== "__main__" :
+def header(_csv_header):
     
+    print(_csv_header)
+    return _csv_header
+    
+
+
+
+
+
+if __name__== "__main__" :
     file_list = []
     dir_list = []
     _f_limit=1000 
-    csvpath = "/home/gwangsik/python_csv_project"                       #로컬경로
+    csvpath = sys.argv[1]                       #로컬경로
 
     search_dir(csvpath, file_list, dir_list)                    #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
     # print(file_list)
@@ -46,12 +56,15 @@ if __name__== "__main__" :
     rdr = csv.reader(f)
 
     csv_list = []
-    print(type(rdr))
+    #print(type(rdr))
 
     for line in rdr:
         csv_list.append(line)
+    
+    csv_header = csv_list[2]
+    header(csv_header)
 
-    print(csv_list[2])
+    #print(csv_list[2])
 
     f.close()
 

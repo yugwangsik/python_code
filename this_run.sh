@@ -5,6 +5,9 @@ if [ -f 'info.ini' ]; then
 	echo "user_path: " $user_path
 	echo "download_path: " $download_path
 
+	echo "============Header============"
+	python3 csv_header.py $user_path
+
 	echo "------------메뉴------------"
 	echo "0. 끝내기"
 	echo "1. 전체 데이터 검색"
@@ -20,4 +23,7 @@ if [ -f 'info.ini' ]; then
 	else
 		python3 csv_to_dataframe.py list $input $user_path $download_path
 	fi
+
+
+	
 fi
