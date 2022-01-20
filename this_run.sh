@@ -6,7 +6,7 @@ if [ -f 'info.ini' ]; then
 	echo "download_path: " $download_path
 
 	echo "============Header============"
-	python3 csv_header.py $user_path
+	python3 csv_header.py $user_path $download_path
 
 	echo "------------메뉴------------"
 	echo "0. 끝내기"

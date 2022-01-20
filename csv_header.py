@@ -32,7 +32,14 @@ def search_dir(dir_path, _filelist, _dirlist):
         search_dir(toDir, _filelist, _dirlist)
 
 
-def header(_csv_header):
+def header(_csv_header, _download_path):
+    f_name = _download_path + "/header_field.txt"
+    f = open(f_name, 'w')
+    for field in _csv_header:
+        data = field + ", "
+        f.write(data)
+
+    f.close()
     
     print(_csv_header)
     return _csv_header
@@ -48,6 +55,8 @@ if __name__== "__main__" :
     _f_limit=1000 
     csvpath = sys.argv[1]                       #로컬경로
 
+    download_path = sys.argv[2]
+
     search_dir(csvpath, file_list, dir_list)                    #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
     # print(file_list)
     f_name = str(file_list)
@@ -62,7 +71,7 @@ if __name__== "__main__" :
         csv_list.append(line)
     
     csv_header = csv_list[2]
-    header(csv_header)
+    header(csv_header, download_path)
 
     #print(csv_list[2])
 

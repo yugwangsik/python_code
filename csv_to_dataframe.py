@@ -7,6 +7,8 @@ import calendar
 import pickle
 import numpy as np
 
+import merge
+
 global_num = int(sys.argv[2])
 pd.set_option('display.max_rows', None)
 
@@ -127,7 +129,7 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
-    print("검색 결과를 txt 파일로 저장했습니다.")
+    print("검색 결과를" + _path + "/result_txt/ txt파일로 저장했습니다.")
     _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
 
@@ -207,6 +209,7 @@ if __name__== "__main__" :
        if global_num == 1 or global_num == 2 or global_num == 3:
            df_sort, option1, option2 = select(global_num, file_list, dir_list, df, len(sys.argv))
            save_df(df_sort, csvpath, option1, option2)
+           merge.plus(df_sort)
        else:
            #print("---------메뉴---------")
            #print("0. 끝내기 \n1. 전체 데이터 검색 \n2. 날짜 범위 데이터 검색 \n3. 해당 월만 검색 \n")
