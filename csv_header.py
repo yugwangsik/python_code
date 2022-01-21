@@ -36,7 +36,7 @@ def header(_csv_header, _download_path):
     f_name = _download_path + "/header_field.txt"
     f = open(f_name, 'w')
     for field in _csv_header:
-        data = field + ", "
+        data = field + ","
         f.write(data)
 
     f.close()

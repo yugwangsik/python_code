@@ -1,9 +1,5 @@
 import pandas as pd
-
-
-
-
-
+import csv
 
 
 def plus(_df):
@@ -14,28 +10,45 @@ def plus(_df):
 
 	i = 0
 
-	while True:
-		lines = f.readline().split(' ')
-		print(lines)
-		print("========")
-		header_line.append(lines)
-		if not lines: break
+	#while True:
+	lines = f.readline()
+	print(type(lines))
+	print(lines)
+	print("========")
 	
+	lines = lines.split(",")
+	print(type(lines))
+	print(lines)
+	print("========")
 	
 	for data in _df:
 		d_list.append(data)
 
-	for add in header_line:
-		if i%2 == 0:
-			print(i)
-			d_list.insert(i, add)
-		i += 1	
+	for h_lines in lines:
+		header_line.append(h_lines)
+		d_list.insert(i, h_lines)
+		i += 1
+
+#	for add in header_line:
+#		if i%2 == 0:
+#			print(i)
+#			print(add)
+#			d_list.insert(i, add)
+#			#print(d_list)
+#		else:
+#			i += 1
+#			continue
+#		i += 1	
 	
-#	d_list.insert(0, 'timestmp')
-#	print(d_list)
-#	d_list = []
-#	d_list.append(_df)
-#	print(d_list[0][0])
-#	print(type(d_list))
 	print(d_list)
+	print(header_line[0])
 	f.close()
+	OutputCsv(d_list)
+
+
+def OutputCsv(_data):
+	with open("../output_csv.csv", 'w', newline='') as f:
+		writer = csv.writer(f)
+		writer.writerow(_data)
+
+
