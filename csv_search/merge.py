@@ -24,13 +24,13 @@ def plus(_df):
 			i += 1
 			j = 0
 
-	print(d_list)
+	
 	d_list.insert(0,[])
 	k = 0
 	for h_lines in lines:
 		d_list[0].append(h_lines)
 	
-	print(d_list)
+	
 	f.close()
 	OutputCsv(d_list)
 
@@ -39,7 +39,6 @@ def OutputCsv(_data):
 	with open("../result_search/output_csv.csv", 'w', newline='') as f:
 		writer = csv.writer(f)
 		for data_list in _data:
-			print(data_list)
 			writer.writerow(data_list)
 
 
