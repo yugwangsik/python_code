@@ -5,43 +5,32 @@ import csv
 def plus(_df):
 	header_path = "/home/gwangsik/python_csv_project/result_txt/header_field.txt"
 	header_line = []
-	d_list = []
+	d_list = [[]]
+	add_list = [[]]
+
 	f = open(header_path, 'r')
 
 	i = 0
+	j = 0
 
-	#while True:
 	lines = f.readline()
-	print(type(lines))
-	print(lines)
-	print("========")
-	
 	lines = lines.split(",")
-	print(type(lines))
-	print(lines)
-	print("========")
 	
 	for data in _df:
-		d_list.append(data)
+		d_list[i].append(data)
+		j += 1
+		if j == 169:
+			d_list.extend([[]])
+			i += 1
+			j = 0
 
+	print(d_list)
+	d_list.insert(0,[])
+	k = 0
 	for h_lines in lines:
-		header_line.append(h_lines)
-		d_list.insert(i, h_lines)
-		i += 1
-
-#	for add in header_line:
-#		if i%2 == 0:
-#			print(i)
-#			print(add)
-#			d_list.insert(i, add)
-#			#print(d_list)
-#		else:
-#			i += 1
-#			continue
-#		i += 1	
+		d_list[0].append(h_lines)
 	
 	print(d_list)
-	print(header_line[0])
 	f.close()
 	OutputCsv(d_list)
 
