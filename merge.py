@@ -38,6 +38,8 @@ def plus(_df):
 def OutputCsv(_data):
 	with open("../output_csv.csv", 'w', newline='') as f:
 		writer = csv.writer(f)
-		writer.writerow(_data)
+		for data_list in _data:
+			print(data_list)
+			writer.writerow(data_list)
 
 
