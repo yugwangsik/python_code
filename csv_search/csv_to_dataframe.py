@@ -119,6 +119,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를 pickle 파일로 저장했습니다.")
+    #print(_path)
     #print(type(_df_))
     if _option1 == None and _option2 == None:
         save_file = sys.argv[4] + '/select1_allData.txt'

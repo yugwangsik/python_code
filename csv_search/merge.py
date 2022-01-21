@@ -3,7 +3,7 @@ import csv
 
 
 def plus(_df):
-	header_path = "/home/gwangsik/python_csv_project/result_txt/header_field.txt"
+	header_path = "/home/gwangsik/python_csv_project/csv_search/result_txt/header_field.txt"
 	header_line = []
 	d_list = [[]]
 	add_list = [[]]
@@ -36,7 +36,7 @@ def plus(_df):
 
 
 def OutputCsv(_data):
-	with open("../output_csv.csv", 'w', newline='') as f:
+	with open("../result_search/output_csv.csv", 'w', newline='') as f:
 		writer = csv.writer(f)
 		for data_list in _data:
 			print(data_list)
