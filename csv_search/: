@@ -72,7 +72,7 @@ def save_f(_result, __data_path, __search_header):
 	f.close()
 
 	print("선택한 헤더에 해당하는 데이터를 저장하였습니다.")
-	print("선택한 헤더는 " + str(__search_header) + " 입니다.")
+	print("선택한 헤더는 " + __search_header + " 입니다.)
 	print("경로는 " + __d_path + " 입니다.")
 		
 
