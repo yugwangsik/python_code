@@ -1,3 +1,8 @@
+<!--## 개요
+  - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다.<br> 
+    단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
+
+
 ## 실행 전 준비 및 경로 변경
   - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다.<br> 
     단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
@@ -34,5 +39,5 @@
   <br><br><img src="/img/menu.PNG" width="30%" height="30%"></img>
 
   
-
+-->
 
