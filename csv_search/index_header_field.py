@@ -79,15 +79,18 @@ def save_f(_result, __data_path, __search_header):
 
 
 if __name__ == "__main__" :
-	path = sys.argv[1] + '/search_header.txt'
-	data_path = sys.argv[2]
+	try:
+		path = sys.argv[1] + '/search_header.txt'
+		data_path = sys.argv[2]
 
-	data_list = pull_txt(data_path)
-	search_header = indexHeader(path)
+		data_list = pull_txt(data_path)
+		search_header = indexHeader(path)
 
-	result = make(data_list, search_header)
-	save_f(result, data_path, search_header)
-
+		result = make(data_list, search_header)
+		save_f(result, data_path, search_header)
+	except Exception as e:
+		print("Error: index_header_field.py")
+		print("경로를 찾을 수 없습니다.")
 
 
 

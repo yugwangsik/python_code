@@ -35,7 +35,8 @@ def search_dir(dir_path, _filelist, _dirlist):
 		for toDir in dir_list:                                          #dir_list만큼 실행(재귀)
 			search_dir(toDir, _filelist, _dirlist)
 	except Exception as e:
-		print("csv파일이 없습니다.")
+		print("Error: csv_to_dataframe.py")
+		print("경로에 csv파일이 없습니다.")
 
 
 def csv_to_df_merge(_flist, fnum=None): 
@@ -191,6 +192,7 @@ def select(_num, _file_list, _dir_list, _df, argv_cnt=0):
             
     except Exception as e:
         print(e)
+	print("Error: csv_to_dataframe.py")
         print("\n■ ERROR: 잘못 입력 하셨습니다.\n")
         return None
 
@@ -221,6 +223,7 @@ if __name__== "__main__" :
            select(num, file_list, dir_list, df, len(sys.argv))
     except Exception as e:
            print(e)
+           print("Error: csv_to_dataframe.py")
            print("\n■ ERROR: 다시 입력 하세요.\n")
     '''
     #while(True):

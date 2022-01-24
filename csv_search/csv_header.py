@@ -28,7 +28,8 @@ def search_dir(dir_path, _filelist, _dirlist):
 		for toDir in dir_list:                                          #dir_list만큼 실행(재귀)
 			search_dir(toDir, _filelist, _dirlist)
 	except Exception as e:
-		print("csv파일이 없습니다.")
+		print("Error: csv_header.py")
+		print("경로에 csv파일이 없습니다.")
 
 
 def header(_csv_header, _download_path):
@@ -45,7 +46,8 @@ def header(_csv_header, _download_path):
 		print(_csv_header)
 		return _csv_header
 	except Exception as e:
-		print("헤더 파일이 없습니다.")
+		print("Error: csv_header.py")
+		print("경로가 맞지 않아 파일을 저장할 수 없습니다.")
 
 
 
@@ -78,5 +80,6 @@ if __name__== "__main__" :
 
 		f.close()
 	except Exception as e:
+		print("Error: csv_header.py")
 		print("헤더 파일이 없습니다.")
 
