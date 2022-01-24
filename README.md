@@ -2,7 +2,11 @@
   현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하고, list의 경로에 파일을 하나씩 읽어온 뒤 dataframe으로 변환하여 하나의 형태로 합친다.<br>
   그리고 전체 데이터 검색, 날짜 범위 데이터 검색, 해당 월만 검색, 끝내기 등의 기능을 지원한다.<br>
   추가적으로 검색된 결과를 pickle, text 파일로 저장한다.<br>
-  저장경로는 result_txt 디렉토리에 저장한다.<br>
+  text파일의 저장경로는 /python_csv_project/csv_search/result_txt 디렉토리에 저장한다.<br>
+  사용자가 원하는 헤더만 선택하여 검색을 할 수 있다.<br>
+  헤더 선택 파일경로 /python_csv_project/csv_search/result_txt/search_header.txt<br>
+  결과 파일경로      /python_csv_project/reault_search/select_search.csv<br>
+  
   +this_run.sh를 실행하면 마지막 결과로 전체 데이터 개수, 전체 csv파일 개수, 검색된 데이터 개수를 알 수 있다.<br><br>
   ※실행 ex)<br>
     :~ $bash this_run.sh<br><br>
@@ -15,7 +19,7 @@
 ## Git 다운로드
   ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
 
-
+<!-- 
 ## 실행 전 준비 및 경로 변경
   - python_csv_project/csv폴더에 테스트용 csv파일을 넣는다.<br> 
     단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
@@ -32,7 +36,7 @@
     &lt;window&gt;<br>
     <img src="/img/win_path.PNG" width="30%" height="30%"></img>
     
-<!--    
+   
 ## 데이터 변환 및 출력
   - this_run.sh를 실행하면 csv_to_dataframe.py가 실행이 되고, 자신의 폴더 및 하위에 있는 csv파일의 경로를 리스트 형태로 저장한다.
   - 저장된 리스트에서 csv파일을 하나씩 dataframe 형태로 읽어와서 리스트에 저장한다.
