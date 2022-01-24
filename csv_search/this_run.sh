@@ -22,6 +22,7 @@ if [ -f 'info.ini' ]; then
 		echo "■ 종료합니다."
 	else
 		python3 csv_to_dataframe.py list $input $user_path $download_path
+		python3 index_header_field.py $download_path $data_path
 	fi
 
 

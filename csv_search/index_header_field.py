@@ -1,28 +1,91 @@
 import csv
+import re
+import sys
 
 
+def pull_txt(_data_path):
+	_d_path = _data_path + "/output.txt"
 
-def pull_csv(_data_path):
-	with open(_data_path, newline='') as f:
-		print(f)
-		reader = csv.reader(f)
+	f = open(_d_path, 'r')
+	line = f.readline()
+	line = line.split(",")
+	
+	
+	i = 0
+	j = 0
+	listup = [[]]
+	for data in line:
+		if data != '':
+			listup[j].append(data)
+			i += 1
+			if i == 169:
+				j += 1
+				listup.insert(j, [])
+				i = 0
 
-	print(reader)
-	f.close()
-#	print(reader[0])
+	
+	return listup	
 
 
 
 def indexHeader(_path):
 	f = open(_path, 'r', newline='')
 	data = f.readline()
-	print(data[0])
+	data = data.strip()
+	data = re.sub("\'|\'","",data)
+	data = data.split(",")
+	
 	f.close()
+	return data
+
+
+
+def make(_data_list, _search_header):
+	h_find = _data_list[0]
+	find_num = [i for j in range(len(_search_header)) for i in range(len(h_find)) if _search_header[j] in h_find[i]]
+
+	find_num = set(find_num)
+	find_num = list(find_num)
+	find_num = sorted(find_num)
+	
+	cnt = 0
+	result_list = [[]]
+	for i in range(len(_data_list)-1):
+		for j in find_num:
+			result_list[cnt].append(_data_list[cnt][j])
+		cnt += 1
+		result_list.insert(cnt,[])
+	
+	
+	return result_list
+
+
+
+def save_f(_result, __data_path):
+	__d_path = __data_path + "/select_search.csv"
+
+	with open(__d_path, "w", newline='') as f:
+		writer = csv.writer(f)
+		for data in _result:
+			writer.writerow(data)
+	f.close()
+		
+
 
 
 if __name__ == "__main__" :
-	path = '/home/gwangsik/python_csv_project/csv_search/result_txt/seach_header.txt'
-	data_path = '/home/gwangsik/python_csv_project/result_search/output_csv.csv'
+	path = sys.argv[1] + '/search_header.txt'
+	data_path = sys.argv[2]
 
-	pull_csv(data_path)
-#	indexHeader(path)
+	data_list = pull_txt(data_path)
+	search_header = indexHeader(path)
+
+	result = make(data_list, search_header)
+	save_f(result, data_path)
+
+
+
+
+
+
+
