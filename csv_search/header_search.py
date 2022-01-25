@@ -80,7 +80,9 @@ def save_f(_result, __data_path, __search_header):
 
 if __name__ == "__main__" :
 	try:
+		#path : 검색할 (선택한) 필드명
 		path = sys.argv[1] + '/search_header.txt'
+		#data_path : 
 		data_path = sys.argv[2]
 
 		data_list = pull_txt(data_path)
