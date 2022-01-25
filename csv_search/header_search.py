@@ -89,7 +89,7 @@ if __name__ == "__main__" :
 		result = make(data_list, search_header)
 		save_f(result, data_path, search_header)
 	except Exception as e:
-		print("Error: index_header_field.py")
+		print("Error: header_search.py")
 		print("경로를 찾을 수 없습니다.")
 
 
