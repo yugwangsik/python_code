@@ -1,3 +1,7 @@
+## Git 다운로드
+  ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
+
+
 # 개요
   현재 폴더 및 하위 폴더에 csv파일 경로를 list로 저장하고, list의 경로에 파일을 하나씩 읽어온 뒤 dataframe으로 변환하여 하나의 형태로 합친다.<br>
   전체 데이터 검색, 날짜 범위 데이터 검색, 해당 월만 검색, 끝내기 등의 기능을 지원한다.<br>
@@ -15,10 +19,6 @@
     2021-08-01<br>
     2021-8-1<br>
     
-    
-
-## Git 다운로드
-  ```:~ $git clone https://github.com/yugwangsik/python_csv_project.git```
 
 <!-- 
 ## 실행 전 준비 및 경로 변경
