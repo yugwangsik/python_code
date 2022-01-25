@@ -3,7 +3,7 @@
   - python_csv_project/csv_search/csv폴더에 csv파일을 넣는다.<br> 
     단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
   - info.ini $val 변수의 경로를 자신의 환경에 맞추어서 변경한다.<br>
-    ```cd python_csv_project```<br>
+    ```vim info.ini```<br>
     $val = 'your_path'
 
 
