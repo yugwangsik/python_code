@@ -4,7 +4,7 @@
     단, csv파일의 첫번째 column에 날짜형식은 yyyy-mm-dd hh:mm:ss 형식이여야 한다.
   - info.ini $val 변수의 경로를 자신의 환경에 맞추어서 변경한다.<br><br>
     $val = 'your_path'
-<!--
+
 
 ## 실행
   ```cd python_csv_project```<br>
@@ -44,5 +44,5 @@
   - python_csv_project/csv_search/result_txt/search_header.txt 파일을 읽어온다.
   - search_header.txt의 헤더와 output.txt의 헤더를 비교하여 일치하는 헤더의 data를 리스트로 따로 저장한다.
   - 저장된 리스트를 python_csv_project/result_search/output.csv로 저장한다.
--->
+
 
