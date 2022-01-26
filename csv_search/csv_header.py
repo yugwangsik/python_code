@@ -79,6 +79,8 @@ if __name__== "__main__" :
 		header(csv_header, download_path)
 
 		f.close()
+		print("\nheader 파일의 경로는 " + sys.argv[2] + "header_field.txt")
+		print("원하는 헤더의 검색을 원할 경우 " + sys.argv[2] + "search_header.txt 수정하세요.")
 	except Exception as e:
 		print("Error: csv_header.py")
 		print("헤더 파일이 없습니다.")

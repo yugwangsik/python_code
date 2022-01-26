@@ -1,7 +1,7 @@
 import csv
 import re
 import sys
-
+import header
 
 def pull_txt(_data_path):
 	_d_path = _data_path + "/output.txt"
@@ -29,14 +29,18 @@ def pull_txt(_data_path):
 
 
 def indexHeader(_path):
-	f = open(_path, 'r', newline='')
-	data = f.readline()
-	data = data.strip()
-	data = re.sub("\'|\'","",data)
-	data = data.split(",")
+#	f = open(_path, 'r', newline='')
+#	data = f.readline()
+#	data = data.strip()
+#	data = re.sub("\'|\'","",data)
+#	data = data.split(",")
+#	
+#	f.close()
+	val = eval("header.open_txt()")
+	print(val)
+	print(type(val))
 	
-	f.close()
-	return data
+	return val
 
 
 
@@ -79,18 +83,16 @@ def save_f(_result, __data_path, __search_header):
 
 
 if __name__ == "__main__" :
-	try:
-		path = sys.argv[1] + '/search_header.txt'
-		data_path = sys.argv[2]
+	
+	path = sys.argv[1] + '/search_header.txt'
+	data_path = sys.argv[2]
 
-		data_list = pull_txt(data_path)
-		search_header = indexHeader(path)
+	data_list = pull_txt(data_path)
+	search_header = indexHeader(path)
 
-		result = make(data_list, search_header)
-		save_f(result, data_path, search_header)
-	except Exception as e:
-		print("Error: header_search.py")
-		print("경로를 찾을 수 없습니다.")
+	result = make(data_list, search_header)
+	save_f(result, data_path, search_header)
+
 
 
 
