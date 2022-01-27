@@ -29,23 +29,34 @@ def pull_txt(_data_path):
 
 
 def indexHeader(_path):
+	buf = []
 #	f = open(_path, 'r', newline='')
 #	data = f.readline()
 #	data = data.strip()
-#	data = re.sub("\'|\'","",data)
+#	data = re.sub("\'|\'|\[|\]","",data)
 #	data = data.split(",")
-#	
-#	f.close()
-	val = eval("header.open_txt()")
-	print(val)
-	print(type(val))
 	
-	return val
+	#data = data.lstrip
+
+	
+
+	#print(data)
+	#f.close()
+	print(type("header.open_txt()"))
+	eval("header.open_txt()")
+	
+	print(eval("header.open_txt()"))
+	
+	print(buf)
+	
+	return buf
 
 
 
 def make(_data_list, _search_header):
 	h_find = _data_list[0]
+	#print(h_find)
+	#print(_search_header[0])
 	find_num = [i for j in range(len(_search_header)) for i in range(len(h_find)) if _search_header[j] in h_find[i]]
 
 	find_num = set(find_num)
@@ -59,9 +70,14 @@ def make(_data_list, _search_header):
 			result_list[cnt].append(_data_list[cnt][j])
 		cnt += 1
 		result_list.insert(cnt,[])
-
-	
-	
+#	result_list = [[]]
+#	for i in range(len(_search_header)):
+#		for j in range(len(h_find)):
+#			if _search_header[i] == h_find[j]:
+#				result_list[i].append(_data_list[i][j])
+#		result_list.insert(i+1,[])
+#
+#	print(result_list)	
 	return result_list
 
 

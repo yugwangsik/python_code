@@ -133,7 +133,7 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
-    print("검색 결과를" + _path + "/result_txt/ txt파일로 저장했습니다.")
+    print("검색 결과를" + _path + "/result_txt/" + save_file + "파일로 저장했습니다.")
     _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
 
