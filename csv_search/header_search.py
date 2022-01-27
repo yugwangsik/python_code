@@ -42,12 +42,11 @@ def indexHeader(_path):
 
 	#print(data)
 	#f.close()
-	print(type("header.open_txt()"))
-	eval("header.open_txt()")
-	
-	print(eval("header.open_txt()"))
-	
-	print(buf)
+	test = header.open_txt()
+	#exec("test")
+	#print(eval("header.open_txt()"))
+	#buf.insert(0,test)
+	buf = test.split(",")
 	
 	return buf
 
@@ -57,19 +56,35 @@ def make(_data_list, _search_header):
 	h_find = _data_list[0]
 	#print(h_find)
 	#print(_search_header[0])
-	find_num = [i for j in range(len(_search_header)) for i in range(len(h_find)) if _search_header[j] in h_find[i]]
+	#find_num = [i for j in range(len(_search_header)) for i in range(len(h_find)) if _search_header[j] == h_find[i]]
 
-	find_num = set(find_num)
-	find_num = list(find_num)
-	find_num = sorted(find_num)
+#	find_num = set(find_num)
+#	find_num = list(find_num)
+#	find_num = sorted(find_num)
+
 	
+
+	#print(find_num)
+	num = []
 	cnt = 0
-	result_list = [[]]
-	for i in range(len(_data_list)-1):
-		for j in find_num:
-			result_list[cnt].append(_data_list[cnt][j])
-		cnt += 1
-		result_list.insert(cnt,[])
+	for i in _search_header:
+		for j in h_find:
+			if i == j:
+				num.append(cnt)
+			cnt += 1
+
+	print("===========")
+	print(num)	
+
+#	cnt = 0
+#	result_list = [[]]
+#	for i in range(len(_data_list)-1):
+#		for j in find_num:
+#			result_list[cnt].append(_data_list[cnt][j])
+#		cnt += 1
+#		result_list.insert(cnt,[])
+
+
 #	result_list = [[]]
 #	for i in range(len(_search_header)):
 #		for j in range(len(h_find)):
@@ -77,8 +92,9 @@ def make(_data_list, _search_header):
 #				result_list[i].append(_data_list[i][j])
 #		result_list.insert(i+1,[])
 #
-#	print(result_list)	
-	return result_list
+	#print(result_list)	
+	#return result_list
+	return None
 
 
 
