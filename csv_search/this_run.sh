@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 val=$1
 
 if [ -f 'info.ini' ]; then
@@ -10,6 +11,18 @@ if [ -f 'info.ini' ]; then
 	echo "============Header============"
 	python3 csv_header.py $input_path $download_path
 	
+=======
+if [ -f 'info.ini' ]; then
+	source info.ini
+	echo "----------------------------"
+	echo "실행 작업: csv_to_dataframe.py"
+	echo "input_path: " $input_path
+	echo "download_path: " $download_path
+
+	echo "============Header============"
+	python3 csv_header.py $input_path $download_path
+
+>>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 	echo "------------메뉴------------"
 	echo "0. 끝내기"
 	echo "1. 전체 데이터 검색"
@@ -29,4 +42,10 @@ if [ -f 'info.ini' ]; then
 		echo "==================select_header================="
 		python3 header_search.py $download_path $data_path
 	fi
+<<<<<<< HEAD
+=======
+
+
+	
+>>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 fi

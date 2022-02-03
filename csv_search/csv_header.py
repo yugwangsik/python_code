@@ -77,10 +77,15 @@ if __name__== "__main__" :
 
 		for line in rdr:
 		    csv_list.append(line)
+<<<<<<< HEAD
 		
 
 		#print(csv_list[0])
 		csv_header = csv_list[0]
+=======
+
+		csv_header = csv_list[2]
+>>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 		header(csv_header, download_path)
 
 		f.close()
