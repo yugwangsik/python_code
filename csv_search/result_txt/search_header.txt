@@ -1,0 +1,1 @@
+buf.append(['ins_dt,', 'dev_id,', 'coll_dt,', 'coll_hour,'])
