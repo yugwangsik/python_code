@@ -34,16 +34,19 @@ def search_dir(dir_path, _filelist, _dirlist):
 
 def header(_csv_header, _download_path):
 	try:
+		h_list = []
 		#print(_download_path)
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
 		for field in _csv_header:
-			data = field + ", "
+			data = field + ","
 			f.write(data)
+			h_list.append(data)
 
 		f.close()
 	    
-		print(_csv_header)
+		#print(_csv_header)
+		print(h_list)
 		return _csv_header
 	except Exception as e:
 		print("Error: csv_header.py")

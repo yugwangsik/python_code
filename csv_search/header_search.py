@@ -30,23 +30,8 @@ def pull_txt(_data_path):
 
 def indexHeader(_path):
 	buf = []
-#	f = open(_path, 'r', newline='')
-#	data = f.readline()
-#	data = data.strip()
-#	data = re.sub("\'|\'|\[|\]","",data)
-#	data = data.split(",")
-	
-	#data = data.lstrip
-
-	
-
-	#print(data)
-	#f.close()
 	test = header.open_txt()
-	#exec("test")
-	#print(eval("header.open_txt()"))
-	#buf.insert(0,test)
-	buf = test.split(",")
+	buf = test
 	
 	return buf
 
@@ -62,20 +47,37 @@ def make(_data_list, _search_header):
 #	find_num = list(find_num)
 #	find_num = sorted(find_num)
 
+	#print(
+	h_list = sum(_search_header, [])
 	
-
-	#print(find_num)
 	num = []
 	cnt = 0
-	for i in _search_header:
-		for j in h_find:
-			if i == j:
+	for i in range(len(h_list)):
+		for j in range(len(h_find)):	
+			if h_list[i] == h_find[j].strip():
 				num.append(cnt)
 			cnt += 1
+		cnt = 0
 
 	print("===========")
 	print(num)	
 
+	result = [[]]
+	cnt = 0
+	for i in range(len(_data_list)-1):
+		for j in num:
+			print("@@@@@")
+			print(i)
+			print(j)
+			result[cnt].append(_data_list[i][j])
+		cnt += 1
+		result.insert(cnt,[])
+		
+
+	print(result)
+	#print(_data_list)
+	#for i in num:
+		
 #	cnt = 0
 #	result_list = [[]]
 #	for i in range(len(_data_list)-1):
@@ -94,7 +96,7 @@ def make(_data_list, _search_header):
 #
 	#print(result_list)	
 	#return result_list
-	return None
+	return result
 
 
 
