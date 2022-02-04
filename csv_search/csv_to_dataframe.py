@@ -35,29 +35,45 @@ def search_dir(dir_path, _filelist, _dirlist):
 		for toDir in dir_list:                                          #dir_list만큼 실행(재귀)
 			search_dir(toDir, _filelist, _dirlist)
 	except Exception as e:
+		print(e)
 		print("탐색할 csv파일이 없습니다.")
 		print(dir_path + "경로에 csv파일을 준비하세요.")
 		exit()
 
 
+
+
+
 def csv_to_df_merge(_flist, fnum=None): 
-    try:
-        if fnum != None :                                               
-            _flist = _flist[:fnum] 
+    #try:
+    if fnum != None :                                               
+        _flist = _flist[:fnum] 
 
-        allData = []                                                
-        _dataframe = pd.DataFrame()
-        for file in _flist:                                             #_flist 만큼 실행
-            _csvdf = pd.read_csv(file, skiprows = 3, header = None)     #csv파일 읽어옴
-            allData.append(_csvdf)                                      #읽어온 데이터 list에 저장
-            del [[_csvdf]]                                              
+    allData = []                                                
+    _dataframe = pd.DataFrame()
+    for file in _flist:                                             #_flist 만큼 실행
+        #_csvdf = pd.read_csv(file, skiprows = 3, header = None)     #csv파일 읽어옴
+        _csvdf = pd.read_csv(file, skiprows = 1, header = None)     #csv파일 읽어옴i
+        date_list = convert(_csvdf)
+        #_dtime = datetime.strptime(str(_csvdf[0]), '%Y-%m-%d %H:%M:%S')
+        #_unix = int(_dtime.timestamp())
+        #print(type(_csvdf[0]))
+        _csvdf.insert(1, "unixtime", date_list)
 
-        _dataframe = pd.concat(allData, axis=0, ignore_index=True)      #저장된 list 데이터프레임으로 합치기
-        return _dataframe
-    except Exception as e:
-        print("탐색할 csv파일이 없습니다.")
-        print(sys.argv[3] + "/csv 경로에 csv파일을 준비하세요")
-        sys.exit(1)
+        #print(_csvdf)
+        allData.append(_csvdf)                                      #읽어온 데이터 list에 저장
+        del [[_csvdf]]                                              
+
+    _dataframe = pd.concat(allData, axis=0, ignore_index=True)      #저장된 list 데이터프레임으로 합치기
+    return _dataframe
+#    except Exception as e:
+#        print(e)
+#        print("탐색할 csv파일이 없습니다.")
+#        print(sys.argv[3] + "/csv 경로에 csv파일을 준비하세요")
+#        sys.exit(1)
+
+
+
 
 
 def file_dir_cnt(f_cnt, d_cnt, cnt):                                                          #    sys.argv[0]   [1]   [2]
@@ -71,6 +87,22 @@ def file_dir_cnt(f_cnt, d_cnt, cnt):                                            
         return None
 
 
+
+
+
+def convert(__csvdf):
+    time_list = []
+    for i in __csvdf[0]:
+        _dtime = datetime.strptime(str(i), '%Y-%m-%d %H:%M:%S.%f')
+        _unix = _dtime.timestamp()
+        time_list.append(_unix)
+
+    return time_list
+
+    
+
+
+
 def df_sort(_df, start_date_time=None, end_date_time=None):
     try:
         i, _ = _df.shape
@@ -80,8 +112,9 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         date_sort = []
         __df_sort = pd.DataFrame()
     
-        while(cnt < i):                                             
-            t = datetime.strptime(_df[0][cnt], '%Y-%m-%d %H:%M:%S')             #데이터프레임에서 날짜열을 가져와서 dataTime형식으로 변환
+        while(cnt < i):      
+            #print(_df)                                       
+            t = datetime.strptime(_df[0][cnt], '%Y-%m-%d %H:%M:%S.%f')             #데이터프레임에서 날짜열을 가져와서 dataTime형식으로 변환
             if start_date_time is not None and end_date_time is not None:
                 check = (t >= start_date_time) and (t <= end_date_time)            #데이터프레임의 날짜와 사용자가 입력한 날짜 사이를 구하는 조건
             if(check):
@@ -104,9 +137,9 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         cnt2 = 0
     
         while(cnt < j):
-            ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S')
+            ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
             while(cnt2 < j):
-                dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S')
+                dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
                 if ds == dl:
                     #result_list[cnt] = date_list[cnt2]
                     result_list.append(date_list[cnt2])
@@ -126,6 +159,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         sys.exit(0)
 
 
+
 def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를 pickle 파일로 저장했습니다.")
     #print(_path)
@@ -142,6 +176,7 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를" + _path + "/result_txt/" + save_file + "파일로 저장했습니다.")
     _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
+
 
 
 
@@ -197,6 +232,7 @@ def select(_num, _file_list, _df, _dir_list=None, argv_cnt=0):
         #print("Error: csv_to_dataframe.py")
         #print("\n■ ERROR: 잘못 입력 하셨습니다.\n")
         return None
+
 
 
 

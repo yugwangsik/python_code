@@ -38,8 +38,10 @@ def header(_csv_header, _download_path):
 		#print(_download_path)
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
+		#_csv.header.insert(1, "UnixTime", allow_duplicates=True)
 		for field in _csv_header:
 			data = field + ","
+			#data = field
 			f.write(data)
 			h_list.append(data)
 
@@ -47,7 +49,9 @@ def header(_csv_header, _download_path):
 	    
 		#print(_csv_header)
 		print(h_list)
-		return _csv_header
+		_num = len(h_list)
+		
+		return _csv_header, _num
 	except Exception as e:
 		print("Error: csv_header.py")
 		print("경로가 맞지 않아 파일을 저장할 수 없습니다.")
@@ -80,11 +84,12 @@ if __name__== "__main__" :
 		
 		#print(csv_list[0])
 		csv_header = csv_list[0]
-		header(csv_header, download_path)
+		_, num = header(csv_header, download_path)
 
 		f.close()
 		print("\nheader 파일의 경로는 " + sys.argv[2] + "header_field.txt")
 		print("원하는 헤더의 검색을 원할 경우 " + sys.argv[2] + "search_header.txt 수정하세요.")
+		print("■필드 개수: "+ str(num))
 	except Exception as e:
 		print("헤더 파일이 없습니다.")
 

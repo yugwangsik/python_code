@@ -27,6 +27,6 @@ if [ -f 'info.ini' ]; then
 		echo " "
 		echo " "
 		echo "==================select_header================="
-		python3 header_search.py $download_path $data_path
+		python3 header_search.py $download_path $data_path $result_path
 	fi
 fi
