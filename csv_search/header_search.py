@@ -39,19 +39,7 @@ def indexHeader(_path):
 
 def make(_data_list, _search_header):
 	h_find = _data_list[0]
-<<<<<<< HEAD
 
-=======
-	#print(h_find)
-	#print(_search_header[0])
-	#find_num = [i for j in range(len(_search_header)) for i in range(len(h_find)) if _search_header[j] == h_find[i]]
-
-#	find_num = set(find_num)
-#	find_num = list(find_num)
-#	find_num = sorted(find_num)
-
-	#print(
->>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 	h_list = sum(_search_header, [])
 	
 	num = []
@@ -62,54 +50,17 @@ def make(_data_list, _search_header):
 				num.append(cnt)
 			cnt += 1
 		cnt = 0
-<<<<<<< HEAD
 	
-=======
-
-	print("===========")
-	print(num)	
->>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 
 	result = [[]]
 	cnt = 0
 	for i in range(len(_data_list)-1):
 		for j in num:
-<<<<<<< HEAD
-=======
-			print("@@@@@")
-			print(i)
-			print(j)
->>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 			result[cnt].append(_data_list[i][j])
 		cnt += 1
 		result.insert(cnt,[])
 		
 
-<<<<<<< HEAD
-=======
-	print(result)
-	#print(_data_list)
-	#for i in num:
-		
-#	cnt = 0
-#	result_list = [[]]
-#	for i in range(len(_data_list)-1):
-#		for j in find_num:
-#			result_list[cnt].append(_data_list[cnt][j])
-#		cnt += 1
-#		result_list.insert(cnt,[])
-
-
-#	result_list = [[]]
-#	for i in range(len(_search_header)):
-#		for j in range(len(h_find)):
-#			if _search_header[i] == h_find[j]:
-#				result_list[i].append(_data_list[i][j])
-#		result_list.insert(i+1,[])
-#
-	#print(result_list)	
-	#return result_list
->>>>>>> 61caa551162a34b165ec4f9f011bc8a0f8376544
 	return result
 
 
