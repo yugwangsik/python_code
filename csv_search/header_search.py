@@ -23,7 +23,7 @@ def pull_txt(_data_path):
 				listup.insert(j, [])
 				i = 0
 
-	print(listup)
+	#print(listup)
 	return listup	
 
 

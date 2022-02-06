@@ -254,7 +254,7 @@ if __name__== "__main__" :
     if global_num == 1 or global_num == 2 or global_num == 3:
         df_sort, option1, option2 = select(global_num, file_list, df, dir_list, len(sys.argv))
         save_df(df_sort, csvpath, option1, option2)
-        merge.plus(df_sort)
+        merge.plus(df_sort, csvpath)
     else:
         num = int(sys.argv[2])       #int(input("\n원하는 메뉴의 번호를 입력하세요: "))
         global_num = num

@@ -2,9 +2,9 @@ import pandas as pd
 import csv
 
 
-def plus(_df):
+def plus(_df, path):
 	try:
-		header_path = "/home/gwangsik/python_csv_project/csv_search/result_txt/header_field.txt"
+		header_path = path + "/result_txt/header_field.txt"
 		header_line = []
 		d_list = [[]]
 		add_list = [[]]
@@ -40,15 +40,15 @@ def plus(_df):
 
 
 def OutputCsv(_data):
-#	with open("../result_search/output_csv.csv", 'w', newline='') as f:
-#		writer = csv.writer(f)
-#		for data_list in _data:
-#			writer.writerow(data_list)
-	
-	
-	with open("../result_search/output.txt", 'w') as f:
+	with open("../result_search/output_csv.csv", 'w', newline='') as f:
+		writer = csv.writer(f)
 		for data_list in _data:
-			for val in data_list:
-				f.write(str(val)+",")
-		
-	f.close()
+			writer.writerow(data_list)
+	
+	
+#	with open("../result_search/output.txt", 'w') as f:
+#		for data_list in _data:
+#			for val in data_list:
+#				f.write(str(val)+",")
+#		
+#	f.close()
