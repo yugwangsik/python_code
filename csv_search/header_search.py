@@ -18,12 +18,12 @@ def pull_txt(_data_path):
 		if data != '':
 			listup[j].append(data)
 			i += 1
-			if i == 340:
+			if i == 339:
 				j += 1
 				listup.insert(j, [])
 				i = 0
 
-	
+	print(listup)
 	return listup	
 
 
@@ -56,11 +56,14 @@ def make(_data_list, _search_header):
 			cnt += 1
 		cnt = 0
 	
-	print(num)
+	#print(num)
 	result = [[]]
 	cnt = 0
-	for i in range(len(_data_list)):
+	#print(_data_list[29])
+	for i in range(len(_data_list)-1):
 		for j in num:
+			#print(i)
+			#print(j)
 			#print(_data_list[i][j])
 			result[cnt].append(_data_list[i][j])
 		cnt += 1
