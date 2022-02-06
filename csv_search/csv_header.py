@@ -38,6 +38,8 @@ def header(_csv_header, _download_path):
 		#print(_download_path)
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
+		_csv_header.insert(1,"UnixTime")
+		#print(type(_csv_header))
 		#_csv.header.insert(1, "UnixTime", allow_duplicates=True)
 		for field in _csv_header:
 			data = field + ","

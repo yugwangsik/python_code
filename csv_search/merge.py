@@ -20,7 +20,7 @@ def plus(_df):
 		for data in _df:
 			d_list[i].append(data)
 			j += 1
-			if j == 339:
+			if j == 340:
 				d_list.extend([[]])
 				i += 1
 				j = 0
