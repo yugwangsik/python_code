@@ -149,7 +149,6 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
                     result_list.append(date_list[cnt2])
                     #print(result_list[cnt])
                     cnt2 += 1
-                    print(cnt2)
                     break
                 else:
                     cnt2 += 1

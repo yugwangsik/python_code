@@ -37,7 +37,7 @@ if [ -f 'info.ini' ]; then
 
 		if [ $input2 == "y" ] || [ $input2 == "Y" ];
 		then
-			echo "비율을 입력하세요: "
+			echo "비율을 입력하세요(% 생략): "
 			read input3
 
 			python3 data_cut.py $data_path $input3
