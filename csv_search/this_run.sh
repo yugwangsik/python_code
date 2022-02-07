@@ -26,7 +26,9 @@ if [ -f 'info.ini' ]; then
 		python3 csv_to_dataframe.py list $input $input_path $download_path
 		echo " "
 		echo " "
-		echo "==================select_header================="
-		python3 header_search.py $download_path $data_path $result_path
+		#echo "==================select_header================="
+		#python3 header_search.py $download_path $data_path $result_path
+		echo "==================요약================="
+		python3 add_data.py $data_path
 	fi
 fi

@@ -79,8 +79,8 @@ def csv_to_df_merge(_flist, fnum=None):
 def file_dir_cnt(f_cnt, d_cnt, cnt):                                                          #    sys.argv[0]   [1]   [2]
     if cnt > 1:                                             #명령어의 매개변수 개수를 측정 ex) python test.py       1     2
         if sys.argv[1] == 'list':
-            print("\n■ 전체 디렉토리 개수: " + str(f_cnt))
-            print("■ 전체 csv파일 개수: " + str(d_cnt))
+            print("\n■ 하위 디렉토리 개수: " + str(d_cnt))
+            print("■ 탐색한 csv파일 개수: " + str(f_cnt))
         else:
             return None
     else:
@@ -143,7 +143,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
                 if ds == dl:
                     #result_list[cnt] = date_list[cnt2]
                     result_list.append(date_list[cnt2])
-                    print(result_list[cnt])
+                    #print(result_list[cnt])
                     cnt2 += 1
                     break
                 else:
@@ -162,6 +162,7 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를 pickle 파일로 저장했습니다.")
+    print("pickle 파일경로는 " + _path + "/df_data.pkl 입니다.")
     #print(_path)
     #print(type(_df_))
     if _option1 == None and _option2 == None:
@@ -173,7 +174,7 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
-    print("검색 결과를" + _path + "/result_txt/" + save_file + "파일로 저장했습니다.")
+    print("검색 결과를 " + save_file + " 파일로 저장했습니다.")
     _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
 
@@ -185,11 +186,11 @@ def select(_num, _file_list, _df, _dir_list=None, argv_cnt=0):
     try:
         if _num == 1:
             first, last, result, _df_sort = df_sort(_df)
-            print("전체 데이터 개수: " + str(len(_df)))
+            #print("전체 데이터 개수: " + str(len(_df)))
             print("■ 첫번째 데이터: " + first)
             print("■ 마지막 데이터: " + last)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            print("■ 검색된 데이터 수: " + result)
+            #print("■ 검색된 데이터 수: " + result)
             global_num = 0
    
 
