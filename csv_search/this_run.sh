@@ -21,7 +21,7 @@ if [ -f 'info.ini' ]; then
 	
 	if [ $input = 0 ]
 	then
-		echo "■ 종료합니다."
+		echo "■종료합니다."
 	else
 		python3 csv_to_dataframe.py list $input $input_path $download_path
 		echo " "
@@ -30,5 +30,22 @@ if [ -f 'info.ini' ]; then
 		#python3 header_search.py $download_path $data_path $result_path
 		echo "==================요약================="
 		python3 add_data.py $data_path
+
+		echo "==================NaN 데이터 제거================="
+		echo "일정 비율 이상의 NaN 데이터를 제거 하시겠습니까? (y/n)"
+		read input2
+
+		if [ $input2 == "y" ] || [ $input2 == "Y" ];
+		then
+			echo "비율을 입력하세요: "
+			read input3
+
+			python3 data_cut.py $data_path $input3
+		elif [ $input2 == "n" ] || [ $input2 == "N" ];
+		then
+			echo "■종료합니다."
+		else
+			echo "■종료합니다."	
+		fi	
 	fi
 fi

@@ -135,6 +135,9 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         j = len(date_list)
         cnt = 0
         cnt2 = 0
+
+        #print(date_sort)
+        #print(date_list)
     
         while(cnt < j):
             ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
@@ -142,17 +145,19 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
                 dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
                 if ds == dl:
                     #result_list[cnt] = date_list[cnt2]
+                    #print(cnt2)
                     result_list.append(date_list[cnt2])
                     #print(result_list[cnt])
                     cnt2 += 1
+                    print(cnt2)
                     break
                 else:
                     cnt2 += 1
             cnt += 1
-            cnt2 = 0
+            #cnt2 = 0
     
         __df_sort = pd.concat(result_list, axis=0, ignore_index=True)
-    
+        #print(result_list)
         return _first, _last, _result, __df_sort
     except ValueError:
         print("csv파일의 날짜 형식을 확인해주세요.")
