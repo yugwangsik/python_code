@@ -23,7 +23,6 @@ def pull_txt(_data_path):
 				listup.insert(j, [])
 				i = 0
 
-	#print(listup)
 	return listup	
 
 
@@ -44,8 +43,6 @@ def make(_data_list, _search_header):
 	for i in range(len(_search_header[0])):
 		h_list.append(re.sub(",","",str(_search_header[0][i])))
 
-	#print(_search_header)
-	#print(h_list)
 	num = []
 	cnt = 0
 	for i in range(len(h_list)):
@@ -56,15 +53,10 @@ def make(_data_list, _search_header):
 			cnt += 1
 		cnt = 0
 	
-	#print(num)
 	result = [[]]
 	cnt = 0
-	#print(_data_list[29])
 	for i in range(len(_data_list)-1):
 		for j in num:
-			#print(i)
-			#print(j)
-			#print(_data_list[i][j])
 			result[cnt].append(_data_list[i][j])
 		cnt += 1
 		result.insert(cnt,[])

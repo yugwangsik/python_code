@@ -1,4 +1,10 @@
 val=$1
+#if [ -n "$val" ];
+#then
+#	echo "111"
+#else
+#	echo "{$val}"
+#fi
 
 if [ -f 'info.ini' ]; then
 	source info.ini $val

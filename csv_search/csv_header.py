@@ -35,21 +35,16 @@ def search_dir(dir_path, _filelist, _dirlist):
 def header(_csv_header, _download_path):
 	try:
 		h_list = []
-		#print(_download_path)
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
 		_csv_header.insert(1,"UnixTime")
-		#print(type(_csv_header))
-		#_csv.header.insert(1, "UnixTime", allow_duplicates=True)
 		for field in _csv_header:
 			data = field + ","
-			#data = field
 			f.write(data)
 			h_list.append(data)
 
 		f.close()
 	    
-		#print(_csv_header)
 		print(h_list)
 		_num = len(h_list)
 		
@@ -71,7 +66,6 @@ if __name__== "__main__" :
 
 		download_path = sys.argv[2]
 
-		#print(download_path)
 
 		search_dir(csvpath, file_list, dir_list)                    #디렉토리에 csv파일이 존재하는가 판단 & 경로 저장
 		f_name = str(file_list)
@@ -84,7 +78,6 @@ if __name__== "__main__" :
 		for line in rdr:
 		    csv_list.append(line)
 		
-		#print(csv_list[0])
 		csv_header = csv_list[0]
 		_, num = header(csv_header, download_path)
 

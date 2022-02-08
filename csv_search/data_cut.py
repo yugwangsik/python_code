@@ -42,7 +42,6 @@ def cutting(_path, _input_num):
         writer = csv.writer(f)
         for data in csv_list:
             writer.writerow(data)
-    #print(csv_list)
     
 
 
