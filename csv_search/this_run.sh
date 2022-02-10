@@ -1,13 +1,15 @@
 val=$1
-#if [ -n "$val" ];
-#then
-#	echo "111"
-#else
-#	echo "{$val}"
-#fi
 
-if [ -f 'info.ini' ]; then
-	source info.ini $val
+
+if [ -f 'info.ini' ] && [ -f 'info_v2.ini' ]; then
+	if [ -n "$val" ]; then
+		source info_v2.ini $val
+		path="$val/../data_file"
+		mkdir $path
+	else
+		source info.ini 
+	fi
+	#source info.ini $val
 	echo "{$direct_path}"
 	echo "실행 작업: csv_to_dataframe.py"
 	echo "input_path: " $input_path
