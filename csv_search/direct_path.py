@@ -153,11 +153,11 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     print("검색 결과를 pickle 파일로 저장했습니다.")
     print("pickle 파일경로는 ./df_data.pkl 입니다.")
     if _option1 == None and _option2 == None:
-        save_file = sys.argv[4] + '/select1_allData.txt'
+        save_file = sys.argv[3] + '/select1_allData.txt'
     elif _option2 == None:
-        save_file = sys.argv[4] +'/select3_' + _option1 + '.txt'
+        save_file = sys.argv[3] +'/select3_' + _option1 + '.txt'
     elif _option1 is not None and _option2 is not None:
-        save_file = sys.argv[4] + '/select2_' + _option1 + '_' + _option2 + '.txt'
+        save_file = sys.argv[3] + '/select2_' + _option1 + '_' + _option2 + '.txt'
     
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
