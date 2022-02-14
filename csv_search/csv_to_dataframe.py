@@ -6,7 +6,8 @@ from datetime import datetime
 import calendar
 import pickle
 import numpy as np
-
+import time
+from tqdm import tqdm
 import merge
 
 global_num = int(sys.argv[2])
@@ -127,18 +128,19 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         cnt = 0
         cnt2 = 0
 
-    
-        while(cnt < j):
-            ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
-            while(cnt2 < j):
-                dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
-                if ds == dl:
-                    result_list.append(date_list[cnt2])
-                    cnt2 += 1
-                    break
-                else:
-                    cnt2 += 1
-            cnt += 1
+        for data in tqdm(_df, desc='데이터 정렬 중'):
+            while(cnt < j):
+                ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
+                while(cnt2 < j):
+                    dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
+                    if ds == dl:
+                        result_list.append(date_list[cnt2])
+                        cnt2 += 1
+                        break
+                    else:
+                        cnt2 += 1
+                cnt += 1
+            time.sleep(0.0001)
             #cnt2 = 0
     
         __df_sort = pd.concat(result_list, axis=0, ignore_index=True)

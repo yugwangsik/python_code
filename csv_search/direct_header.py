@@ -3,6 +3,8 @@ import os
 import csv
 import re
 import sys
+import time
+from tqdm import tqdm
 
 #def search_dir(dir_path, _filelist, _dirlist):
 #	try:
@@ -38,10 +40,11 @@ def header(_csv_header, _download_path):
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
 		_csv_header.insert(1,"UnixTime")
-		for field in _csv_header:
+		for field in tqdm(_csv_header, desc='헤더 추출중'):
 			data = field + ","
 			f.write(data)
 			h_list.append(data)
+			time.sleep(0.001)
 
 		f.close()
 	    

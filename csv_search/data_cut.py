@@ -1,5 +1,7 @@
 import csv
 import sys
+import time
+from tqdm import tqdm
 
 
 def cutting(_path, _input_num):
@@ -16,22 +18,26 @@ def cutting(_path, _input_num):
     cnt = len(csv_list[0])-1
     i = 0
     cut_num = []
-    for data in csv_list:
+    #for data in csv_list:
+    for data in tqdm(csv_list, desc='제거할 라인 탐색 중'):
         if i > 0:
             if float(data[cnt]) >= _input_num:
                 cut_num.append(i)
                 i += 1
         else:
             i += 1
+        time.sleep(0.05)
 
     cut_cnt = 0
     cut_num.reverse()
-    for j in cut_num:
+    #for j in cut_num:
+    for j in tqdm(cut_num, desc='라인 제거 중'):
         del csv_list[j]
         cut_cnt += 1
+        time.sleep(0.05)
 
     list_cnt = len(csv_list)
-    print("■원본 라인 수(헤더포함): %d" %list_num)
+    print("\n■원본 라인 수(헤더포함): %d" %list_num)
     print("■제거한 라인 수: %d" %cut_cnt)
     print("■현재 라인 수(헤더포함): %d" %list_cnt)
 

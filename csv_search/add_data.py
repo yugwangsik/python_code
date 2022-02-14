@@ -1,22 +1,26 @@
 import csv
 import re
 import sys
+import time
+from tqdm import tqdm
 
 def count():
     path = sys.argv[1] + "/output.csv"
 
     add_list = []
+
     f = open(path, 'r')
     rdr = csv.reader(f)
     for data in rdr:
         add_list.append(data)
+        
 
     f.close()
     add_list.pop()
     add_list[0].pop()
 
-    print("■필드 개수: " + str(len(add_list[0])))
-    print("■전체 라인 개수: " + str(len(add_list)))
+    #print("■필드 개수: " + str(len(add_list[0])))
+    #print("■전체 라인 개수: " + str(len(add_list)))
 
 
     line_cnt = 0
@@ -29,10 +33,9 @@ def count():
             if data[j] is not None:
                 all_cnt += 1
 
-
     cnt = 0
     num = 0
-    for data in add_list:
+    for data in tqdm(add_list, desc='필드, 라인별 정보 취합 중'):
         if num > 0:
             for j in range(len(data)):
                 if data[j] is None or data[j] == 'nan':
@@ -47,9 +50,11 @@ def count():
             percent_nan = round((line_nan/line_cnt) * 100, 2)
             add_list[num].append(percent_nan)
 
+        time.sleep(0.05)
         line_cnt = 0
         line_nan = 0
         num += 1
+        #p_list.append(progress)
 
 
     add_list[0].append("라인 총 데이터 수")
@@ -59,6 +64,8 @@ def count():
     percent = round((cnt/all_cnt) * 100, 2)
 
 
+    print("■필드 개수: " + str(len(add_list[0])))
+    print("■전체 라인 개수: " + str(len(add_list)))
     print("■전체 데이터 개수: %d" %all_cnt)
     print("■전체 NaN 데이터 개수: %d" %cnt)
     print("■전체 NaN 비율: %0.2f%%" %percent)

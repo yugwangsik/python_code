@@ -3,6 +3,8 @@ import os
 import csv
 import re
 import sys
+import time
+from tqdm import tqdm
 
 def search_dir(dir_path, _filelist, _dirlist):
 	try:
@@ -38,10 +40,13 @@ def header(_csv_header, _download_path):
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
 		_csv_header.insert(1,"UnixTime")
-		for field in _csv_header:
+		#for field in _csv_header:
+		#for field, progress in zip(_csv_header, tqdm(_csv_header, desc='header 추출중')):
+		for field in tqdm(_csv_header, desc='헤더 추출중'):
 			data = field + ","
 			f.write(data)
 			h_list.append(data)
+			time.sleep(0.001)
 
 		f.close()
 	    
@@ -51,6 +56,7 @@ def header(_csv_header, _download_path):
 		return _csv_header, _num
 	except Exception as e:
 		print("Error: csv_header.py")
+		print(e)
 		print("경로가 맞지 않아 파일을 저장할 수 없습니다.")
 
 
@@ -75,8 +81,10 @@ if __name__== "__main__" :
 
 		csv_list = []
 
-		for line in rdr:
+		for line in tqdm(rdr, desc='csv파일 읽는 중'):
 		    csv_list.append(line)
+		    time.sleep(0.00001)
+
 		
 		csv_header = csv_list[0]
 		_, num = header(csv_header, download_path)

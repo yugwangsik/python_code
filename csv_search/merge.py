@@ -1,6 +1,7 @@
 import pandas as pd
 import csv
-
+import time
+from tqdm import tqdm
 
 def plus(_df, path):
 	try:
@@ -8,6 +9,7 @@ def plus(_df, path):
 		header_line = []
 		d_list = [[]]
 		add_list = [[]]
+
 
 		f = open(header_path, 'r')
 
@@ -17,13 +19,16 @@ def plus(_df, path):
 		lines = f.readline()
 		lines = lines.split(",")
 		
-		for data in _df:
+		#for data in _df:
+		#for data, progress in zip(_df, tqdm(_df, desc='헤더와 데이터프레임 합치는 중')):
+		for data in tqdm(_df, desc='헤더와 데이터프레임 합치는 중'):
 			d_list[i].append(data)
 			j += 1
 			if j == 339:
 				d_list.extend([[]])
 				i += 1
 				j = 0
+			time.sleep(0.0001)
 
 		
 		d_list.insert(0,[])
