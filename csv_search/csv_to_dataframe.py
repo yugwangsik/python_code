@@ -127,8 +127,9 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         j = len(date_list)
         cnt = 0
         cnt2 = 0
-
-        for data in tqdm(_df, desc='데이터 정렬 중'):
+#        for data in tqdm(_df, desc='데이터 정렬 중'):
+#        for data in tqdm(date_sort, desc='데이터 정렬 중'):
+        with tqdm(total = j, desc = '데이터 정렬 중') as pbar:    
             while(cnt < j):
                 ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
                 while(cnt2 < j):
@@ -136,11 +137,12 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
                     if ds == dl:
                         result_list.append(date_list[cnt2])
                         cnt2 += 1
+                        pbar.update(1)
                         break
                     else:
                         cnt2 += 1
                 cnt += 1
-            time.sleep(0.0001)
+            time.sleep(0.05)
             #cnt2 = 0
     
         __df_sort = pd.concat(result_list, axis=0, ignore_index=True)
