@@ -7,6 +7,7 @@ import calendar
 import pickle
 import numpy as np
 import time
+import asyncio
 from tqdm import tqdm
 import merge
 
@@ -51,15 +52,14 @@ def csv_to_df_merge(_flist, fnum=None):
 
     allData = []                                                
     _dataframe = pd.DataFrame()
-    for file in _flist:                                             #_flist 만큼 실행
-        #_csvdf = pd.read_csv(file, skiprows = 3, header = None)     #csv파일 읽어옴
+    for file in tqdm(_flist, desc='csv 읽는 중'):                                             #_flist 만큼 실행
         _csvdf = pd.read_csv(file, skiprows = 1, header = None)     #csv파일 읽어옴i
         date_list = convert(_csvdf)
-        #_dtime = datetime.strptime(str(_csvdf[0]), '%Y-%m-%d %H:%M:%S')
         _csvdf.insert(1, "unixtime", date_list)
 
         allData.append(_csvdf)                                      #읽어온 데이터 list에 저장
-        del [[_csvdf]]                                              
+        del [[_csvdf]]
+        time.sleep(0.0001)                                              
 
     _dataframe = pd.concat(allData, axis=0, ignore_index=True)      #저장된 list 데이터프레임으로 합치기
     return _dataframe
@@ -72,8 +72,8 @@ def csv_to_df_merge(_flist, fnum=None):
 def file_dir_cnt(f_cnt, d_cnt, cnt):                                                          #    sys.argv[0]   [1]   [2]
     if cnt > 1:                                             #명령어의 매개변수 개수를 측정 ex) python test.py       1     2
         if sys.argv[1] == 'list':
-            print("\n■ 하위 디렉토리 개수: " + str(d_cnt))
-            print("■ 탐색한 csv파일 개수: " + str(f_cnt))
+            print("\n■하위 디렉토리 개수: " + str(d_cnt))
+            print("■탐색한 csv파일 개수: " + str(f_cnt))
         else:
             return None
     else:
@@ -152,8 +152,8 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
 
 
 def save_df(_df_, _path, _option1=None, _option2=None):
-    print("검색 결과를 pickle 파일로 저장했습니다.")
-    print("pickle 파일경로는 " + _path + "/df_data.pkl 입니다.")
+    print("■검색 결과를 pickle 파일로 저장했습니다.")
+    print("■pickle 파일경로는 " + _path + "/df_data.pkl 입니다.")
     if _option1 == None and _option2 == None:
         save_file = sys.argv[4] + '/select1_allData.txt'
     elif _option2 == None:
@@ -163,7 +163,7 @@ def save_df(_df_, _path, _option1=None, _option2=None):
     
     with open('df_data.pkl', 'wb') as f:
          pickle.dump(_df_, f)
-    print("검색 결과를 " + save_file + " 파일로 저장했습니다.")
+    print("■검색 결과를 " + save_file + " 파일로 저장했습니다.")
     _df_.to_csv(save_file, header=False, index=False, encoding='cp949')
        
 
@@ -175,28 +175,28 @@ def select(_num, _file_list, _df, _dir_list=None, argv_cnt=0):
     try:
         if _num == 1:
             first, last, result, _df_sort = df_sort(_df)
-            print("■ 첫번째 데이터: " + first)
-            print("■ 마지막 데이터: " + last)
+            print("■첫번째 데이터: " + first)
+            print("■마지막 데이터: " + last)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
             global_num = 0
    
 
         elif _num == 2:
-            date1 = input("■ 시작날짜 ex) 2021-06-01 :") + " 00:00:00"            #사용자가 시작 날짜 입력
+            date1 = input("■시작날짜 ex) 2021-06-01 :") + " 00:00:00"            #사용자가 시작 날짜 입력
             date_time1 = datetime.strptime(date1, '%Y-%m-%d %H:%M:%S')          #입력 날짜를 datetime으로 변환
-            date2 = input("■ 종료날짜 ex) 2021-12-31 :") + " 23:59:59"            #사용자가 종료 날짜 입력
+            date2 = input("■종료날짜 ex) 2021-12-31 :") + " 23:59:59"            #사용자가 종료 날짜 입력
             date_time2 = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')          #입력 날짜를 datetime으로 변환
 
             _, _, result, _df_sort = df_sort(_df, date_time1, date_time2)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            print("■ 검색된 데이터 수: " + result)
+            print("■검색된 데이터 수: " + result)
 
             global_num = 0
             return _df_sort, date1, date2
 
         elif _num == 3:
             now_year = 2021                                                         #datetime.now().year
-            input_m = int(input("■ 월 1~12 ex) 8 :"))           
+            input_m = int(input("■월 1~12 ex) 8 :"))           
             day = str(calendar.monthrange(now_year, input_m)[1])
             start = str(now_year) + "-" + str(input_m) + "-" + "01 00:00:00"
             start_date = datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
@@ -205,7 +205,7 @@ def select(_num, _file_list, _df, _dir_list=None, argv_cnt=0):
 
             _, _, result, _df_sort = df_sort(_df, start_date, end_date)
             file_dir_cnt(len(_file_list), len(_dir_list), argv_cnt)
-            print("■ 검색된 데이터 수: " + result)
+            print("■검색된 데이터 수: " + result)
             global_num = 0
 
             return _df_sort, str(input_m), None

@@ -39,14 +39,12 @@ def header(_csv_header, _download_path):
 		h_list = []
 		f_name = _download_path + "/header_field.txt"
 		f = open(f_name, 'w')
-		_csv_header.insert(1,"UnixTime")
-		#for field in _csv_header:
-		#for field, progress in zip(_csv_header, tqdm(_csv_header, desc='header 추출중')):
-		for field in tqdm(_csv_header, desc='헤더 추출중'):
-			data = field + ","
-			f.write(data)
+		_csv_header[0].insert(1,"UnixTime")
+		for field in _csv_header:
+			data = field
+			f.write(str(data))
 			h_list.append(data)
-			time.sleep(0.001)
+			
 
 		f.close()
 	    
@@ -80,19 +78,13 @@ if __name__== "__main__" :
 		rdr = csv.reader(f)
 
 		csv_list = []
+		csv_list.append(next(rdr))
 
-		for line in tqdm(rdr, desc='csv파일 읽는 중'):
-		    csv_list.append(line)
-		    time.sleep(0.00001)
-
-		
-		csv_header = csv_list[0]
-		_, num = header(csv_header, download_path)
+		_, num = header(csv_list, download_path)
 
 		f.close()
 		print("\nheader 파일의 경로는 " + sys.argv[2] + "/header_field.txt")
 		print("원하는 헤더의 검색을 원할 경우 " + sys.argv[2] + "/search_header.txt 수정하세요.")
-		#print("■필드 개수: "+ str(num))
 	except Exception as e:
 		print("헤더 파일이 없습니다.")
 

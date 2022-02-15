@@ -6,42 +6,13 @@ from datetime import datetime
 import calendar
 import pickle
 import numpy as np
+import time
+from tqdm import tqdm
 
 import merge
 
 global_num = int(sys.argv[1])
 pd.set_option('display.max_rows', None)
-
-#def search_dir(dir_path, _filelist, _dirlist):
-#
-#	try:
-#		if os.path.isfile(dir_path):                                    #해당 디렉토리에 csv파일이 있는지 판단
-#			file_extension = os.path.splitext(dir_path)[1]              #splitext()[1] 확장자만 반환  but, splitext() 전체경로 및 확장자까지 반환
-#			if file_extension == ".csv" or file_extension == ".CSV":    #확장자가 .csv 혹은 .CSV라면 실행
-#				_filelist.append(dir_path)                              #csv파일 list에 추가
-#			return None
-#
-#		dir_list = []
-#		f_list = os.listdir(dir_path)                                   #현재 경로에 모든 파일 및 디렉토리 반환
-#		for fname in f_list:                                            
-#			file_extension = os.path.splitext(fname)[1]                 #리스트에서 확장자만 가져와서 변수에 저장
-#			if os.path.isdir(dir_path + "/" + fname):                   #dir_path에 디렉토리가 있으면 실행
-#				dir_list.append(dir_path + "/" + fname)                 #dir_path list에 저장
-#				_dirlist.append(dir_path + "/" + fname)
-#			elif os.path.isfile(dir_path + "/" + fname):                #혹은 dir_path에 파일이 있으면 실행
-#				if file_extension == ".csv" or file_extension == ".CSV":#file_extension이 .csv 혹은 .CSV라면 실행
-#					_filelist.append(dir_path + "/" + fname)            #_filelist에 저장
-#
-#		for toDir in dir_list:                                          #dir_list만큼 실행(재귀)
-#			search_dir(toDir, _filelist, _dirlist)
-#	except Exception as e:
-#		print(e)
-#		print("탐색할 csv파일이 없습니다.")
-#		print(dir_path + "경로에 csv파일을 준비하세요.")
-#		exit()
-
-
-
 
 
 def csv_to_df_merge(_flist, fnum=None): 
@@ -50,15 +21,16 @@ def csv_to_df_merge(_flist, fnum=None):
 
     allData = []                                                
     _dataframe = pd.DataFrame()
-    for file in _flist:                                             #_flist 만큼 실행
-        #_csvdf = pd.read_csv(file, skiprows = 3, header = None)     #csv파일 읽어옴
+    for file in tqdm(_flist, desc='csv 읽는 중'):                                             #_flist 만큼 실행
+    #for file in _flist:                                             #_flist 만큼 실행
         _csvdf = pd.read_csv(file, skiprows = 1, header = None)     #csv파일 읽어옴i
         date_list = convert(_csvdf)
-        #_dtime = datetime.strptime(str(_csvdf[0]), '%Y-%m-%d %H:%M:%S')
         _csvdf.insert(1, "unixtime", date_list)
+        #print("1")
 
         allData.append(_csvdf)                                      #읽어온 데이터 list에 저장
-        del [[_csvdf]]                                              
+        del [[_csvdf]]
+        time.sleep(0.0001)                                              
 
     _dataframe = pd.concat(allData, axis=0, ignore_index=True)      #저장된 list 데이터프레임으로 합치기
     return _dataframe
@@ -66,28 +38,14 @@ def csv_to_df_merge(_flist, fnum=None):
 
 
 
-
-
-#def file_dir_cnt(f_cnt, d_cnt, cnt, _path_type):                                                          #    sys.argv[0]   [1]   [2]
-#    if cnt > 1 and _path_type == 0:                                             #명령어의 매개변수 개수를 측정 ex) python test.py       1     2
-#        if sys.argv[1] == 'list':
-#            print("\n■ 하위 디렉토리 개수: " + str(d_cnt))
-#            print("■ 탐색한 csv파일 개수: " + str(f_cnt))
-#        else:
-#            return None
-#    else:
-#        return None
-
-
-
-
-
 def convert(__csvdf):
     time_list = []
-    for i in __csvdf[0]:
+    for i in tqdm(__csvdf[0], desc='UnixTime 추가 생성 중'):
+        #print("2")
         _dtime = datetime.strptime(str(i), '%Y-%m-%d %H:%M:%S.%f')
         _unix = _dtime.timestamp()
         time_list.append(_unix)
+        time.sleep(0.0001)
 
     return time_list
 
@@ -104,7 +62,8 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         date_sort = []
         __df_sort = pd.DataFrame()
     
-        while(cnt < i):      
+        while(cnt < i):
+            #print("3")
             t = datetime.strptime(_df[0][cnt], '%Y-%m-%d %H:%M:%S.%f')             #데이터프레임에서 날짜열을 가져와서 dataTime형식으로 변환
             if start_date_time is not None and end_date_time is not None:
                 check = (t >= start_date_time) and (t <= end_date_time)            #데이터프레임의 날짜와 사용자가 입력한 날짜 사이를 구하는 조건
@@ -127,18 +86,21 @@ def df_sort(_df, start_date_time=None, end_date_time=None):
         cnt = 0
         cnt2 = 0
 
-    
-        while(cnt < j):
-            ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
-            while(cnt2 < j):
-                dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
-                if ds == dl:
-                    result_list.append(date_list[cnt2])
-                    cnt2 += 1
-                    break
-                else:
-                    cnt2 += 1
-            cnt += 1
+        #for data in tqdm(_df, desc='데이터 정렬 중'): 
+        for data in _df:
+            #print("4")
+            while(cnt < j):
+                ds = datetime.strptime(date_sort[cnt], '%Y-%m-%d %H:%M:%S.%f')
+                while(cnt2 < j):
+                    dl = datetime.strptime(date_list[cnt2][0], '%Y-%m-%d %H:%M:%S.%f')
+                    if ds == dl:
+                        result_list.append(date_list[cnt2])
+                        cnt2 += 1
+                        break
+                    else:
+                        cnt2 += 1
+                cnt += 1
+            #time.sleep(0.0001)
             #cnt2 = 0
     
         __df_sort = pd.concat(result_list, axis=0, ignore_index=True)
