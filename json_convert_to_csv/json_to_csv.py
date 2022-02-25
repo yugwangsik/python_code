@@ -43,8 +43,8 @@ def json_concat(_filst):
     print("↓↓헤더 정보↓↓ ")
     print(header)
     print("■ 결과 파일은 ./file_json/result.csv로 저장되었습니다. ")
-    print("■ 전체 행 개수: ", x)
-    print("■ 전체 열 개수: ", y)
+    print("■ 전체 필드 개수: ", x)
+    print("■ 전체 라인 개수: ", y)
 
 if __name__ == '__main__':
     k_list = []
