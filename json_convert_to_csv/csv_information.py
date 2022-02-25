@@ -10,11 +10,13 @@ def save_f(_topic, _data_list, _device):
         i.pop()
         if _device in i:
             device_concat.append(i)
-    
+   
+    index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
     df_device.to_csv('device_info.csv', header=False, index=False)
         
     print("■ 디바이스 ", _device, "의 정보를 device_info.csv로 저장했습니다.")
+    print("■ ", _device, "라인 수: ", index)
     return None
 
 
@@ -41,4 +43,5 @@ with open('device.txt', 'w') as file:
 
 print("■ 총 기기 개수: ", len(topic))
 
+#if device is not 1:
 save_f(topic, data_list, device)
