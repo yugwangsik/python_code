@@ -19,20 +19,15 @@ def save_f(_topic, _data_list, _device):
         if num == '':
             num = 0.0
         
+        #if _device in i:
+
+        text = i[9]
+        text = text[-2:]
         if _device in i:
-        #if float(_machine) == float(num) and _device in i:
-        #if float(_machine) == float(num):
-        #if float(_machine) == float(num) and i[0] not in name:
-            #print(device_concat[cnt][0])
-            #print(i[0])
-            #print(cnt)
-            #name.append(i[0])
+        #if _device in i and (text == "ra" or text == "RA"):
+        #if _device in i and text == "va":
             device_concat.append(i)
-        #if device_concat[cnt][0] != i[0]:
-            #device_concat.append(i)
-            #cnt += 1
-    #print(name)
-    #print(cnt) 
+
     device_concat.sort()
     device_concat.insert(0, device_concat[len(device_concat)-1])
     device_concat.pop()
@@ -41,7 +36,9 @@ def save_f(_topic, _data_list, _device):
 
     index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
-    df_device.to_csv('sender_info.csv', header=False, index=False)
+    a = df_device.drop([2,5,6,7,8], axis='columns')
+    #df_device.to_csv('sender_info.csv', header=False, index=False)
+    a.to_csv('sender_test.csv', header=False, index=False)
         
     print("■ 디바이스 ", _device, "의 정보를 device_info.csv로 저장했습니다.")
     print("■ ", _device, "라인 수: ", index)
