@@ -2,6 +2,7 @@ import sys
 import csv
 import pandas as pd 
 import re
+import matplotlib.pyplot as pyplot
 
 def save_f(_topic, _data_list, _device):
 #def save_f(_topic, _data_list, _device, _machine):
@@ -11,6 +12,8 @@ def save_f(_topic, _data_list, _device):
     d_list.pop(0)
 
     cnt = 0 
+    x_list = []
+    y_list = []
     name = []
     name.append(_data_list[0][0])   
     for i in d_list:
@@ -23,14 +26,20 @@ def save_f(_topic, _data_list, _device):
 
         text = i[9]
         text = text[-2:]
-        if _device in i:
+        #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
-        #if _device in i and text == "va":
+        if _device in i and text == "ma":
+            x_list.append(i[2])
+            y_list.append(i[11])
             device_concat.append(i)
 
     device_concat.sort()
     device_concat.insert(0, device_concat[len(device_concat)-1])
     device_concat.pop()
+
+    pyplot.plot(x_list, y_list)
+    pyplot.show()
+    pyplot.savefig('data.png')
 
     
 
