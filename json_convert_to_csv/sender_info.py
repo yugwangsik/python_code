@@ -34,6 +34,8 @@ def save_f(_topic, _data_list, _device):
             device_concat.append(i)
 
     device_concat.sort()
+    x_list.sort()
+    y_list.sort()
     device_concat.insert(0, device_concat[len(device_concat)-1])
     device_concat.pop()
 
