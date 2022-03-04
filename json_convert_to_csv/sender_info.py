@@ -29,8 +29,12 @@ def save_f(_topic, _data_list, _device):
         #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
         if _device in i and text == "ma":
-            x_list.append(i[2])
-            y_list.append(i[11])
+            if i[11] == '':
+                y_list.append(0.0)
+            else:
+                y_list.append(float(i[11]))
+            x_list.append(float(i[2]))
+            #y_list.append(float(i[11]))
             device_concat.append(i)
 
     device_concat.sort()
