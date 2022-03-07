@@ -34,8 +34,10 @@ def save_f(_topic, _data_list, _device):
         #if _device in i and (text == "ra" or text == "RA"):
         if _device in i and text == "ma":
             if i[11] == '':
+                print('1')
                 y_list.append(0.0)
             else:
+                print('2')
                 y_list.append(float(i[11]))
             x_list.append(i[2])
             #y_list.append(float(i[11]))
