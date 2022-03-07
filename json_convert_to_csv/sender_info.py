@@ -46,7 +46,7 @@ def save_f(_topic, _data_list, _device):
     x_list.pop(0)
     y_list.pop(0)
 
-    print(type(y_list[5]))
+    print(y_list)
 
     pyplot.plot(x_list, y_list)
     pyplot.title('7c87cedb2940 fw_ver = ma')
