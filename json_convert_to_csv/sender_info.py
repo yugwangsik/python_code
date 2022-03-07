@@ -48,6 +48,7 @@ def save_f(_topic, _data_list, _device):
 
     print(y_list)
 
+    pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
     pyplot.title('7c87cedb2940 fw_ver = ma')
     pyplot.show()
