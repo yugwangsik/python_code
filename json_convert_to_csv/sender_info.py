@@ -38,23 +38,30 @@ def save_f(_topic, _data_list, _device):
     device_concat.sort()
     device_concat.insert(0, device_concat[len(device_concat)-1])
     device_concat.pop()
+
+    num = 0
  
     for data in device_concat:
-        x_list.append(data[2])
-        y_list.append(data[11])
+        if num == 0:
+            num += 1
+        else:
+            if data[11] == '':
+                x_list.append(data[2])
+                y_list.append(0.0)
+            else:
+                x_list.append(data[2])
+                y_list.append(float(data[11]))
     
     x_list.pop(0)
     y_list.pop(0)
 
-    print(y_list)
+    print(type(y_list[4]))
 
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
     pyplot.title('7c87cedb2940 fw_ver = ma')
     pyplot.show()
     pyplot.savefig('data.png')
-
-    
 
     index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
