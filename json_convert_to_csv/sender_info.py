@@ -37,7 +37,7 @@ def save_f(_topic, _data_list, _device):
                 y_list.append(0.0)
             else:
                 y_list.append(float(i[11]))
-            x_list.append(unix)
+            x_list.append(i[2])
             #y_list.append(float(i[11]))
             device_concat.append(i)
 
