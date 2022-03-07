@@ -33,21 +33,23 @@ def save_f(_topic, _data_list, _device):
         #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
         if _device in i and text == "ma":
-            if i[11] == '':
-                print('1')
-                y_list.append(0.0)
-            else:
-                print('2')
-                y_list.append(float(i[11]))
-            x_list.append(i[2])
-            #y_list.append(float(i[11]))
             device_concat.append(i)
 
     device_concat.sort()
     device_concat.insert(0, device_concat[len(device_concat)-1])
     device_concat.pop()
+ 
+    for data in device_concat:
+        x_list.append(data[2])
+        y_list.append(data[11])
+    
+    x_list.pop(0)
+    y_list.pop(0)
+
+    print(type(y_list[5]))
 
     pyplot.plot(x_list, y_list)
+    pyplot.title('7c87cedb2940 fw_ver = ma')
     pyplot.show()
     pyplot.savefig('data.png')
 
