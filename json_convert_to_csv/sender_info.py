@@ -26,6 +26,10 @@ def save_f(_topic, _data_list, _device):
 
         text = i[9]
         text = text[-2:]
+        print(i[2])
+        unix = float(i[2])
+        print(unix)
+        print(type(unix))
         #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
         if _device in i and text == "ma":
@@ -33,7 +37,7 @@ def save_f(_topic, _data_list, _device):
                 y_list.append(0.0)
             else:
                 y_list.append(float(i[12]))
-            x_list.append(i[2])
+            x_list.append(unix)
             #y_list.append(float(i[11]))
             device_concat.append(i)
 
