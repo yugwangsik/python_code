@@ -45,12 +45,12 @@ def save_f(_topic, _data_list, _device):
         if num == 0:
             num += 1
         else:
-            if data[13] == '':
+            if data[15] == '':
                 x_list.append(data[2])
                 y_list.append(0.0)
             else:
                 x_list.append(data[2])
-                y_list.append(float(data[13]))
+                y_list.append(float(data[15]))
     
     x_list.pop(0)
     y_list.pop(0)
@@ -73,18 +73,15 @@ def save_f(_topic, _data_list, _device):
             i += 1
 
     label[-1] = (x_list[-1])
-    print(label)
-    print(len(x_list))
-    print(len(label))
 
     pyplot.rcParams["figure.figsize"] = [10,6]
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
     pyplot.tick_params(axis='x', labelsize=7)
     pyplot.xticks(x_list, labels=label)
-    pyplot.title('7c87cedb2940 fw_ver = ma, msg.ceramic_state.curr_pinpoint')
+    pyplot.title('7c87cedb2940 fw_ver = ma, msg.ceramic_state.v-position')
     pyplot.show()
-    pyplot.savefig('data.png')
+    pyplot.savefig('data[15].png')
 
     index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
