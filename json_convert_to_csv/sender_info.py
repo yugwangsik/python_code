@@ -45,12 +45,12 @@ def save_f(_topic, _data_list, _device):
         if num == 0:
             num += 1
         else:
-            if data[11] == '':
+            if data[17] == '':
                 x_list.append(data[2])
                 y_list.append(0.0)
             else:
                 x_list.append(data[2])
-                y_list.append(float(data[11]))
+                y_list.append(float(data[17]))
     
     x_list.pop(0)
     y_list.pop(0)
@@ -59,9 +59,9 @@ def save_f(_topic, _data_list, _device):
 
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
-    pyplot.title('7c87cedb2940 fw_ver = ma')
+    pyplot.title('7c87cedb2940 fw_ver = ma, msg.base_state.curr-temperature')
     pyplot.show()
-    pyplot.savefig('data.png')
+    pyplot.savefig('data[17].png')
 
     index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
