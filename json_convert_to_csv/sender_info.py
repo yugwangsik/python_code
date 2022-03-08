@@ -32,7 +32,7 @@ def save_f(_topic, _data_list, _device):
         #print(type(unix))
         #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
-        if _device in i and text == "ma":
+        if _device in i and text == "va":
             device_concat.append(i)
 
     device_concat.sort()
@@ -79,7 +79,7 @@ def save_f(_topic, _data_list, _device):
     pyplot.plot(x_list, y_list)
     pyplot.tick_params(axis='x', labelsize=7)
     pyplot.xticks(x_list, labels=label)
-    pyplot.title('7c87cedb2940 fw_ver = ma, msg.ceramic_state.v-position')
+    pyplot.title('7c87cedb2940 fw_ver = va, msg.ceramic_state.v-position')
     pyplot.show()
     pyplot.savefig('data[15].png')
 
