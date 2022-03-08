@@ -45,12 +45,12 @@ def save_f(_topic, _data_list, _device):
         if num == 0:
             num += 1
         else:
-            if data[17] == '':
+            if data[11] == '':
                 x_list.append(data[2])
                 y_list.append(0.0)
             else:
                 x_list.append(data[2])
-                y_list.append(float(data[17]))
+                y_list.append(float(data[11]))
     
     x_list.pop(0)
     y_list.pop(0)
@@ -79,7 +79,7 @@ def save_f(_topic, _data_list, _device):
 
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
-#    pyplot.tick_params(axis='x', labelsize=5)
+    pyplot.tick_params(axis='x', labelsize=10)
     pyplot.xticks(x_list, labels=label)
     pyplot.title('7c87cedb2940 fw_ver = ma, msg.base_state.curr-temperature')
     pyplot.show()
