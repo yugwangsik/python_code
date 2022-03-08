@@ -60,7 +60,7 @@ def save_f(_topic, _data_list, _device):
     i = 0
     j = 0
     while j <= val-1:
-        if i >= 4:
+        if i >= 3:
             i = 0
 
         if i == 0:
