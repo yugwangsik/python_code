@@ -55,11 +55,19 @@ def save_f(_topic, _data_list, _device):
     x_list.pop(0)
     y_list.pop(0)
 
-    print(type(y_list[4]))
+#    val = len(x_list)
+#    if (val % 2) == 0:
+#        i = 0
+#        for i <= 4:
+#            
+#    else:
+
+
+    print(x_list)
 
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
-    pyplot.tick_params(axis='x', length=1)
+    pyplot.tick_params(axis='x', labelsize=5)
     pyplot.title('7c87cedb2940 fw_ver = ma, msg.base_state.curr-temperature')
     pyplot.show()
     pyplot.savefig('data.png')
