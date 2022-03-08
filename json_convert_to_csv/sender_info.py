@@ -45,12 +45,12 @@ def save_f(_topic, _data_list, _device):
         if num == 0:
             num += 1
         else:
-            if data[11] == '':
+            if data[13] == '':
                 x_list.append(data[2])
                 y_list.append(0.0)
             else:
                 x_list.append(data[2])
-                y_list.append(float(data[11]))
+                y_list.append(float(data[13]))
     
     x_list.pop(0)
     y_list.pop(0)
