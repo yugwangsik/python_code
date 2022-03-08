@@ -79,9 +79,9 @@ def save_f(_topic, _data_list, _device):
 
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
-    pyplot.tick_params(axis='x', labelsize=10)
+    pyplot.tick_params(axis='x', labelsize=5)
     pyplot.xticks(x_list, labels=label)
-    pyplot.title('7c87cedb2940 fw_ver = ma, ')
+    pyplot.title('7c87cedb2940 fw_ver = ma, msg.ceramic_state.curr_pinpoint')
     pyplot.show()
     pyplot.savefig('data.png')
 
