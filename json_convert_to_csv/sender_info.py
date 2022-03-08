@@ -60,7 +60,7 @@ def save_f(_topic, _data_list, _device):
     i = 0
     j = 0
     while j <= val-1:
-        if i >= 3:
+        if i >= 4:
             i = 0
 
         if i == 0:
@@ -77,9 +77,10 @@ def save_f(_topic, _data_list, _device):
     print(len(x_list))
     print(len(label))
 
+    pyplot.figure(figsize=(10,6))
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
-    pyplot.tick_params(axis='x', labelsize=5)
+    pyplot.tick_params(axis='x', labelsize=7)
     pyplot.xticks(x_list, labels=label)
     pyplot.title('7c87cedb2940 fw_ver = ma, msg.ceramic_state.curr_pinpoint')
     pyplot.show()
