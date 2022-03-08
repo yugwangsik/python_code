@@ -77,7 +77,7 @@ def save_f(_topic, _data_list, _device):
     print(len(x_list))
     print(len(label))
 
-    pyplot.figure(figsize=(10,6))
+    pyplot.rcParams["figure.figsize"] = [10,6]
     pyplot.scatter(x_list, y_list)
     pyplot.plot(x_list, y_list)
     pyplot.tick_params(axis='x', labelsize=7)
