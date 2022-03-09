@@ -32,7 +32,7 @@ def save_f(_topic, _data_list, _device):
         #print(type(unix))
         #if _device in i:
         #if _device in i and (text == "ra" or text == "RA"):
-        if _device in i and text == "va":
+        if _device in i and text == "MA":
             device_concat.append(i)
 
     device_concat.sort()
@@ -45,12 +45,12 @@ def save_f(_topic, _data_list, _device):
         if num == 0:
             num += 1
         else:
-            if data[15] == '':
+            if data[11] == '':
                 x_list.append(data[2])
                 y_list.append(0.0)
             else:
                 x_list.append(data[2])
-                y_list.append(float(data[15]))
+                y_list.append(float(data[11]))
     
     x_list.pop(0)
     y_list.pop(0)
@@ -79,9 +79,9 @@ def save_f(_topic, _data_list, _device):
     pyplot.plot(x_list, y_list)
     pyplot.tick_params(axis='x', labelsize=7)
     pyplot.xticks(x_list, labels=label)
-    pyplot.title('7c87cedb2940 fw_ver = va, msg.ceramic_state.v-position')
+    pyplot.title('7c87cedb2940 fw_ver = MA, msg.ceramic_state.curr_pinpoint')
     pyplot.show()
-    pyplot.savefig('data[15].png')
+    pyplot.savefig('data[11].png')
 
     index = len(device_concat) 
     df_device = pd.DataFrame(device_concat)
